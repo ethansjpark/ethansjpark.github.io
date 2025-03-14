@@ -8,7 +8,7 @@
     <ul class="list-disc pl-8"></ul>
 
     <!-- Adds related posts to the end of an article -->
-    <p class="mb-2">Here are some more photos you might like to enjoy next:</p>
+    <!-- <p class="mb-2">Here are some more photos you might like to enjoy next:</p>
   {% endunless %}
 
   <li class="my-2">
@@ -27,4 +27,15 @@
 {% if site.newsletter.enabled and site.footer_fixed %}
   <p class="mb-2" style="margin-top: 1.5rem !important">Subscribe to be notified of future articles:</p>
   {% include newsletter.liquid left=true %}
-{% endif %}
+{% endif %} -->
+
+<!-- Next & Previous Buttons -->
+<div class="post-navigation mt-6 flex justify-between">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="btn btn-primary">&larr; Previous: {{ page.previous.title }}</a>
+  {% endif %}
+  
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="btn btn-primary">Next: {{ page.next.title }} &rarr;</a>
+  {% endif %}
+</div>
