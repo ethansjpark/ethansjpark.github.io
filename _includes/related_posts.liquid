@@ -30,13 +30,13 @@
 {% endif %} -->
 
 <!-- Next & Previous Buttons -->
-<div class="post-navigation mt-6 flex justify-between">
-  {% if page.previous %}
-    <a href="{{ page.next.url | relative_url }}" class="btn btn-primary">&larr; Previous</a>
-  {% endif %}
-  
+<div class="post-navigation mt-6 flex justify-between items-center">  
   {% if page.next %}
-    <a href="{{ page.previous.url | relative_url }}" class="btn btn-primary">Next:&rarr;</a>
+    <a href="{{ page.next.url | relative_url }}" class="btn btn-primary">Previous:&rarr;</a>
+  {% endif %}
+
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="btn btn-primary">&larr; Next</a>
   {% endif %}
 </div>
 
@@ -61,13 +61,13 @@
       color: white;
   }
 
-  /* Positioning: Keep previous button on the left, move next button to far right */
-  .prev-button {
-      margin-left: 0;
+  /* Positioning: Keep "Next" on the left and "Previous" on the right */
+  .next-button {
+      margin-right: auto; /* Pushes next to the left */
   }
 
-  .next-button {
-      margin-left: auto; /* Push next button to the right */
+  .prev-button {
+      margin-left: auto; /* Pushes previous to the right */
   }
 
   /* Color styling based on theme */
