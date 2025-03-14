@@ -32,38 +32,39 @@
 <!-- Next & Previous Buttons -->
 <div class="post-navigation">
   {% if page.next %}
-    <a href="{{ page.next.url | relative_url }}" class="btn next-button">&larr; NEXT</a>
+    <a href="{{ page.next.url | relative_url }}" class="btn next-button">NEXT  &rarr;</a>
   {% endif %}
 
   {% if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">PREVIOUS: &rarr;</a>
+    <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">&larr; PREVIOUS</a>
   {% endif %}
 </div>
 
 <style>
-  /* Ensures full width navigation bar */
+  /* Ensure full-width navigation bar */
   .post-navigation {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; /* Pushes Next to left, Previous to right */
       align-items: center;
       width: 100%;
-      padding: 10px 0;
+      padding: 20px 0;
   }
 
   /* Button Styling */
   .btn {
-      padding: 12px 20px;
+      padding: 12px 24px;
       font-size: 16px;
       font-weight: bold;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
+      transition: background-color 0.3s ease-in-out, transform 0.2s;
       text-decoration: none;
       color: white;
+      display: inline-block;
   }
 
-  /* Fix alignment: Next (left) and Previous (right) */
+  /* Correct alignment: Next (left) and Previous (right) */
   .next-button {
       margin-right: auto; /* Pushes next to the far left */
   }
@@ -75,21 +76,23 @@
   /* Color Styling Based on Theme */
   @media (prefers-color-scheme: light) {
       .btn {
-          background-color: #fc8a17; /* Light Mode */
+          background-color: #fc8a17; /* Light Mode Orange */
       }
 
       .btn:hover {
           background-color: #e57a14; /* Slightly Darker Orange */
+          transform: scale(1.05); /* Subtle Hover Effect */
       }
   }
 
   @media (prefers-color-scheme: dark) {
       .btn {
-          background-color: #00369f; /* Dark Mode */
+          background-color: #00369f; /* Dark Mode Blue */
       }
 
       .btn:hover {
           background-color: #002a7f; /* Slightly Darker Blue */
+          transform: scale(1.05); /* Subtle Hover Effect */
       }
   }
 </style>
