@@ -36,4 +36,4 @@ Beyond my technical work, I co-founded [MEDi](https://github.com/2nd-Company/MED
 
 I’m always looking to collaborate on innovative projects, whether it's building efficient AI models, automating financial analysis, or exploring cutting-edge deep learning applications.
 
-If you’d like to collaborate on a project or interested in teaming up, feel free to reach out! 🚀
+If you’d like to collaborate on a project or interested in teaming up, feel free to reach out!
