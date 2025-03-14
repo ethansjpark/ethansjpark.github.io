@@ -30,26 +30,28 @@
 {% endif %} -->
 
 <!-- Next & Previous Buttons -->
-<div class="post-navigation mt-6 flex justify-between items-center">  
+<div class="post-navigation">
   {% if page.next %}
-    <a href="{{ page.next.url | relative_url }}" class="btn btn-primary">Previous:&rarr;</a>
+    <a href="{{ page.next.url | relative_url }}" class="btn next-button">&larr; NEXT</a>
   {% endif %}
 
   {% if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}" class="btn btn-primary">&larr; Next</a>
+    <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">PREVIOUS: &rarr;</a>
   {% endif %}
 </div>
 
 <style>
-  /* Ensure the container spans full width */
+  /* Ensures full width navigation bar */
   .post-navigation {
       display: flex;
+      justify-content: space-between;
       align-items: center;
       width: 100%;
+      padding: 10px 0;
   }
 
-  /* Styling for buttons */
-  .prev-button, .next-button {
+  /* Button Styling */
+  .btn {
       padding: 12px 20px;
       font-size: 16px;
       font-weight: bold;
@@ -61,33 +63,33 @@
       color: white;
   }
 
-  /* Positioning: Keep "Next" on the left and "Previous" on the right */
+  /* Fix alignment: Next (left) and Previous (right) */
   .next-button {
-      margin-right: auto; /* Pushes next to the left */
+      margin-right: auto; /* Pushes next to the far left */
   }
 
   .prev-button {
-      margin-left: auto; /* Pushes previous to the right */
+      margin-left: auto; /* Pushes previous to the far right */
   }
 
-  /* Color styling based on theme */
+  /* Color Styling Based on Theme */
   @media (prefers-color-scheme: light) {
-      .prev-button, .next-button {
-          background-color: #fc8a17; /* Light mode */
+      .btn {
+          background-color: #fc8a17; /* Light Mode */
       }
 
-      .prev-button:hover, .next-button:hover {
-          background-color: #e57a14; /* Darker shade for hover */
+      .btn:hover {
+          background-color: #e57a14; /* Slightly Darker Orange */
       }
   }
 
   @media (prefers-color-scheme: dark) {
-      .prev-button, .next-button {
-          background-color: #00369f; /* Dark mode */
+      .btn {
+          background-color: #00369f; /* Dark Mode */
       }
 
-      .prev-button:hover, .next-button:hover {
-          background-color: #002a7f; /* Darker shade for hover */
+      .btn:hover {
+          background-color: #002a7f; /* Slightly Darker Blue */
       }
   }
 </style>
