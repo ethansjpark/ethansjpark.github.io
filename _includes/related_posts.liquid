@@ -32,12 +32,14 @@
 <!-- Next & Previous Buttons -->
 <div class="post-navigation">
   {% if page.next %}
-    <a href="{{ page.next.url | relative_url }}" class="btn next-button">Next &rarr;</a>
+    <a href="{{ page.next.url | relative_url }}" class="btn next-button">&larr; Previous</a>
   {% endif %}
 
   {% if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">&larr; Previous</a>
+    <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">Next &rarr;</a>
   {% endif %}
+
+  
 </div>
 
 <style>
@@ -54,7 +56,6 @@
   .btn {
       padding: 12px 24px;
       font-size: 16px;
-      font-weight: bold;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -71,28 +72,5 @@
 
   .prev-button {
       margin-left: auto; /* Pushes previous to the far right */
-  }
-
-  /* Color Styling Based on Theme */
-  @media (prefers-color-scheme: light) {
-      .btn {
-          background-color: #fc8a17; /* Light Mode Orange */
-      }
-
-      .btn:hover {
-          background-color: #e57a14; /* Slightly Darker Orange */
-          transform: scale(1.05); /* Subtle Hover Effect */
-      }
-  }
-
-  @media (prefers-color-scheme: dark) {
-      .btn {
-          background-color: #00369f; /* Dark Mode Blue */
-      }
-
-      .btn:hover {
-          background-color: #002a7f; /* Slightly Darker Blue */
-          transform: scale(1.05); /* Subtle Hover Effect */
-      }
   }
 </style>
