@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ethansjpark.github.io/sitemap.xml
+Sitemap: https://ethansjpark.github.io/ethansjpark/sitemap.xml
