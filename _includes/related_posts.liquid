@@ -30,7 +30,7 @@
 {% endif %} -->
 
 <!-- Next & Previous Buttons -->
-<div class="post-navigation">
+<div class="post-navigation {% if site.enable_darkmode %} dark-mode {% else %} light-mode {% endif %}">
   {% if page.next %}
     <a href="{{ page.next.url | relative_url }}" class="btn next-button">&larr; Previous</a>
   {% endif %}
@@ -38,15 +38,13 @@
   {% if page.previous %}
     <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">Next &rarr;</a>
   {% endif %}
-
-  
 </div>
 
 <style>
   /* Ensure full-width navigation bar */
   .post-navigation {
       display: flex;
-      justify-content: space-between; /* Pushes Next to left, Previous to right */
+      justify-content: space-between;
       align-items: center;
       width: 100%;
       padding: 20px 0;
@@ -65,12 +63,31 @@
       display: inline-block;
   }
 
-  /* Correct alignment: Next (left) and Previous (right) */
   .next-button {
       margin-right: auto; /* Pushes next to the far left */
   }
 
   .prev-button {
       margin-left: auto; /* Pushes previous to the far right */
+  }
+
+  /* Light Mode Styling */
+  .light-mode .btn {
+      background-color: #fc8a17; /* Orange for Light Mode */
+  }
+
+  .light-mode .btn:hover {
+      background-color: #e57a14; /* Darker Orange */
+      transform: scale(1.05);
+  }
+
+  /* Dark Mode Styling */
+  .dark-mode .btn {
+      background-color: #00369f; /* Blue for Dark Mode */
+  }
+
+  .dark-mode .btn:hover {
+      background-color: #002a7f; /* Darker Blue */
+      transform: scale(1.05);
   }
 </style>
