@@ -8,7 +8,7 @@ first_name: Ethan
 middle_name:
 last_name: Park
 contact_note: >
-  The best way to contact me is gmail!
+  Feel free to contact me via Gmail
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   About Ethan
 footer_text: >
@@ -88,7 +88,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Ethan Park # blog_name will be displayed in your blog page
-blog_description: the world inside my eyes
+blog_description: 🖼️ the world inside my eyes
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
