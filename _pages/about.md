@@ -28,7 +28,7 @@ I love combining software development, AI, and psychology to tackle real-world p
 
 I am currently a sophomore at Emory University pursuing B.S. in Computer Science & Mathematics and a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/).
 
-Also, I am an incoming software development engineer intern at [Amazon](https://www.amazon.com/) over the summer of 2025!
+Also, I am an incoming software development engineer intern at [AWS](https://aws.amazon.com/) over the summer of 2025!
 
 My background further includes machine learning, NLP, and AI model deployment, with a strong interest in fintech, autonomous driving, and deep learning.
 
