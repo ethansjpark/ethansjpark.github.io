@@ -28,9 +28,11 @@ I love combining software development, AI, and psychology to tackle real-world p
 
 I am currently a sophomore at Emory University pursuing B.S. in Computer Science & Mathematics and a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/).
 
-Also, I am an incoming software development engineer intern at [AWS](https://aws.amazon.com/) over the summer of 2025!
+Also, I am a software development engineer intern at [AWS](https://aws.amazon.com/) DMS Stream Team!
 
 My background further includes machine learning, NLP, and AI model deployment, with a strong interest in fintech, autonomous driving, and deep learning.
+
+I'm also passionate about investing in transformative technologies at the earliest stages. Lately, I've been exploring opportunities in pre-seed startups, particularly in AI, healthcare, Medicare, and biotech. This interest is driving my long-term goal of contributing to the venture capital space, where I can help visionary founders turn breakthrough ideas into real-world impact.
 
 Beyond my technical work, I co-founded [MEDi](https://github.com/2nd-Company/MEDi), an AI-powered app assisting visually impaired individuals in identifying pharmaceutical products. I also founded Third Eye, a motion-detection system for visually impaired soccer players.
 
