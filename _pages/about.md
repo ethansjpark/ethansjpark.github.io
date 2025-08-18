@@ -26,16 +26,12 @@ latest_posts:
 
 I love combining software development, AI, and psychology to tackle real-world problems across different industries. My passion lies in creating impactful projects that showcase how technology can enhance everyday life, especially for marginalized individuals from our society.
 
-I am currently a sophomore at Emory University pursuing B.S. in Computer Science & Mathematics and a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/).
+I am currently a junior at Emory University pursuing B.S. in Computer Science & Mathematics and a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/).
 
-Also, I am a software development engineer intern at [AWS](https://aws.amazon.com/) DMS Stream Team!
+Also, I was previously a software development engineer intern at [AWS](https://aws.amazon.com/).
 
-My background further includes machine learning, NLP, and AI model deployment, with a strong interest in fintech, autonomous driving, and deep learning.
+I have a strong interest in fintech, autonomous driving, and deep learning. I'm also passionate about investing in transformative technologies at the earliest stages. Lately, I've been exploring opportunities in pre-seed startups, particularly in AI, healthcare, Medicare, and biotech.
 
-I'm also passionate about investing in transformative technologies at the earliest stages. Lately, I've been exploring opportunities in pre-seed startups, particularly in AI, healthcare, Medicare, and biotech. This interest is driving my long-term goal of contributing to the venture capital space, where I can help visionary founders turn breakthrough ideas into real-world impact.
-
-Beyond my technical work, I co-founded [MEDi](https://github.com/2nd-Company/MEDi), an AI-powered app assisting visually impaired individuals in identifying pharmaceutical products. I also founded Third Eye, a motion-detection system for visually impaired soccer players.
-
-I’m always looking to collaborate on innovative projects, whether it's building efficient AI models, automating financial analysis, or exploring cutting-edge deep learning applications.
+Previously, I built [MEDi](https://github.com/2nd-Company/MEDi), an AI-powered app assisting visually impaired individuals in identifying pharmaceutical products and Third Eye, a motion-detection system for visually impaired soccer players.
 
 If you’d like to collaborate on a project or interested in teaming up, feel free to reach out!
