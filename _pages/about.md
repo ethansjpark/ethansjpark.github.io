@@ -28,9 +28,9 @@ I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
 
 I'm currently building a Financial Data Platform [Tries](https://github.com/polymic) at [Polymic](https://www.linkedin.com/company/polymic-tries/about/?viewAsMember=true).
 
-I've been a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/), working on fata visualization, machine learning, neurodivergence, and etc.
+I've been a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/), working on data visualization, machine learning, neurodivergence, and etc.
 
-I love combining software, deep learning, and AI to tackle real-world problems across industries like fintech, robotics, and autonomous driving. My passion lies in creating impactful projects that showcase accessibility and automation.
+I love combining software, deep learning, and AI to tackle real-world problems across industries like fintech, robotics, and autonomous driving.
 
 I'm also passionate about engaging with and investing in early-stage startups in AI, fintech, robotics, and healthcare.
 
