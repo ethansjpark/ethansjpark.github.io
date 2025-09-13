@@ -24,14 +24,16 @@ latest_posts:
 
 👋 Hi, Ethan Here!
 
-I love combining software development, AI, and psychology to tackle real-world problems across different industries. My passion lies in creating impactful projects that showcase how technology can enhance everyday life, especially for marginalized individuals from our society.
+I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
 
-I am currently a junior at Emory University pursuing B.S. in Computer Science & Mathematics and a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/).
+I'm currently building a Financial Data Platform [Tries](https://github.com/polymic) at [Polymic](https://www.linkedin.com/company/polymic-tries/about/?viewAsMember=true).
 
-Also, I was previously a software development engineer intern at [AWS](https://aws.amazon.com/).
+I've been a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/), working on fata visualization, machine learning, neurodivergence, and etc.
 
-I have a strong interest in fintech, autonomous driving, and deep learning. I'm also passionate about investing in transformative technologies at the earliest stages. Lately, I've been exploring opportunities in pre-seed startups, particularly in AI, healthcare, Medicare, and biotech.
+I love combining software, deep learning, and AI to tackle real-world problems across industries like fintech, robotics, and autonomous driving. My passion lies in creating impactful projects that showcase accessibility and automation.
 
-Previously, I built [MEDi](https://github.com/2nd-Company/MEDi), an AI-powered app assisting visually impaired individuals in identifying pharmaceutical products and Third Eye, a motion-detection system for visually impaired soccer players.
+I'm also passionate about engaging with and investing in early-stage startups in AI, fintech, robotics, and healthcare.
 
-If you’d like to collaborate on a project or interested in teaming up, feel free to reach out!
+Worked previously at [AWS](https://aws.amazon.com/) as a software development engineer intern.
+
+Always open to conversations—feel free to reach out!
