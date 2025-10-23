@@ -10,7 +10,8 @@ profile:
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Based in </p>
-    <p>Cresskill, NJ</p>
+    <p>Seoul, KR</p>
+    <p>& Cresskill, NJ</p>
     <p>& Atlanta, GA</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
