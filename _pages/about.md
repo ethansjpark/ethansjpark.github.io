@@ -27,7 +27,7 @@ latest_posts:
 
 I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
 
-I'm currently building a Financial Data Platform [Tries](https://github.com/polymic) at [Polymic](https://www.linkedin.com/company/polymic-tries/about/?viewAsMember=true) and researching Computer Vision through [pathfinder](https://github.com/ethansjpark/pathfinder-vision-robustness).
+I'm currently building a Financial Data Platform [Tries](https://github.com/polymic) at [Polymic](https://www.linkedin.com/company/polymic-tries/about/?viewAsMember=true) and researching Computer Vision on sim-to-real embodied navigation through [freq-nav-sim2real](https://github.com/ethansjpark/freq-nav-sim2real).
 
 I've been a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/), working on data visualization, machine learning, and neurodivergence.
 
@@ -37,4 +37,4 @@ I'm also passionate about engaging with and investing in early-stage startups in
 
 Worked previously at [AWS](https://aws.amazon.com/) as a software development engineer intern.
 
-Always open to conversations—feel free to reach out!
+Always open to conversations, feel free to reach out!
