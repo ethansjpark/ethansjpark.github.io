@@ -277,16 +277,26 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-medi",
-          title: 'MEDi',
-          description: "💊 AI-driven medication detection platform",
+          section: "News",},{id: "projects-thirdeye",
+          title: 'ThirdEye',
+          description: "AI-Powered Motion Detection for Visually Impaired Athletes",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
-            },},{id: "projects-thirdeye",
-          title: 'ThirdEye',
-          description: "📸 AI-Powered Motion Detection for Visually Impaired Athletes",
+            },},{id: "projects-medi",
+          title: 'MEDi',
+          description: "AI-driven medication detection platform",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
+            },},{id: "projects-reverie",
+          title: 'Reverie',
+          description: "AI-powered Dream Analysis Platform for Personalized Insights",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_project/";
+            },},{id: "projects-tries",
+          title: 'Tries',
+          description: "No-Code Financial Data Scraping and Export Platform for Investors and Analysts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_project/";
             },},{
         id: 'social-email',
         title: 'email',
