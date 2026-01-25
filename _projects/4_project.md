@@ -1,9 +1,9 @@
 ---
 layout: page
-title: MEDi
-description: AI-driven medication detection platform
-img: assets/img/7.jpg
-importance: 3
+title: Tries
+description: No-Code Financial Data Scraping and Export Platform for Investors and Analysts
+img: assets/img/11.jpg
+importance: 1
 category: work
 related_publications: false
 ---
@@ -19,18 +19,10 @@ To optimize efficiency for real-world use, we implemented TensorFlow Lite and Me
 The MEDi team is constantly striving to improve and develop the platform, setting goals to provide accurate information and a user-friendly UI/UX. We are deeply committed to continually enhancing the environment for people who often remain in the shadows, ensuring they have access to tools that empower their daily lives.
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi_ix1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi_ix2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi_ix3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
+    {% include figure.liquid loading="eager" path="assets/img/reverie_landing.png" title="example image" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">
-    MEDi's brief UI/UX Capture
+    Landing Page
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
