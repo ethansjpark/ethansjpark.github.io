@@ -2,54 +2,55 @@
 layout: page
 title: Tries
 description: No-Code Financial Data Scraping and Export Platform for Investors and Analysts
-img: assets/img/11.jpg
+img: assets/img/6.jpg
 importance: 1
 category: work
 related_publications: false
 ---
 
-MEDi is an AI-driven platform designed to assist visually impaired individuals in efficiently and accurately identifying pharmaceutical products in stores.
+# Tries
 
-To prevent medication misuse, my team and I developed a way to guide pharmaceutical shopping effectively. In February 2025, we launched a platform called MEDi.
+Tries is a no code financial data platform built to make real time and historical market data easier to access, structure, and actually use.
 
-MEDi provides step-by-step shopping guide agents by utilizing hand-tracking and object detection rather than broad assistance. For added convenience, we also offer audible recognition features, ensuring users can navigate their shopping experience with ease and confidence.
+I am building Tries to remove the friction I kept seeing between raw financial data and real workflows. Instead of asking users to write scripts or manage infrastructure, the platform focuses on delivering clean, structured datasets that are immediately usable for analysis, investing, and reporting.
 
-To optimize efficiency for real-world use, we implemented TensorFlow Lite and MediaPipe, allowing us to perform model quantization and enhance performance on edge devices. The platform is built with Kotlin, ensuring a seamless and responsive experience for potential users.
+Tries brings together live price data, historical OHLCV data, and company financials through a serverless architecture designed for speed and reliability. The system prioritizes fast responses and efficient data fetching so users can focus on analysis rather than waiting on pipelines.
 
-The MEDi team is constantly striving to improve and develop the platform, setting goals to provide accurate information and a user-friendly UI/UX. We are deeply committed to continually enhancing the environment for people who often remain in the shadows, ensuring they have access to tools that empower their daily lives.
+The platform is currently in active development, with core data flows, caching logic, and export workflows already in place. Tries is nearing production readiness, with an emphasis on scalability and thoughtful system design as the product continues to evolve.
+
+At its core, Tries is about making financial data feel accessible, flexible, and dependable rather than fragile or over engineered.
+
+## Technologies and Structure
+
+### Frontend
+
+Next.js  
+TypeScript
+
+### Backend
+
+FastAPI  
+Python
+
+### Data and Infrastructure
+
+PostgreSQL  
+Redis  
+WebSocket
+AWS Lambda  
+AWS S3
+
+### Hosting
+
+AWS
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie_landing.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/tries_landing.png" title="example image" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">
     Landing Page
 </div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/med_try1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/med_try2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/med_try3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    MEDi's camera integrated interface
-</div>
 
-MEDi is currently in its beta testing phase. You can join us by clicking the logo below.
+Tries is currently under active development and nearing completion
 
-<div class="row">
-    <div class="col-sm-3 mt-3 mt-md-0">
-        <a href="https://play.google.com/apps/testing/com.MedI" target="_blank" rel="noopener noreferrer">
-            {% include figure.liquid loading="eager" path="assets/img/medi_logo.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-        </a>
-        <div class="caption mt-2">
-            Click our logo! 
-        </div>
-    </div>
-</div>
-
-If you're interested in our code, check out [MEDi's GitHub](https://github.com/2nd-Company/MEDi) repository! 🚀
+If you're interested in our code, check out [Tries](https://github.com/orgs/polymic/) repository! 🚀
