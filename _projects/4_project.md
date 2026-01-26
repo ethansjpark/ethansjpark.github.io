@@ -33,7 +33,7 @@ Python
 ### Data and Infrastructure
 
 PostgreSQL  
-Redis  
+Redis
 WebSocket
 AWS Lambda  
 AWS S3
