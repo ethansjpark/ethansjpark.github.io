@@ -8,8 +8,6 @@ category: work
 related_publications: false
 ---
 
-# Tries
-
 Tries is a no code financial data platform built to make real time and historical market data easier to access, structure, and actually use.
 
 I am building Tries to remove the friction I kept seeing between raw financial data and real workflows. Instead of asking users to write scripts or manage infrastructure, the platform focuses on delivering clean, structured datasets that are immediately usable for analysis, investing, and reporting.
