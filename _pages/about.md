@@ -22,7 +22,7 @@ latest_posts:
 
 👋 Hi, Ethan Here!
 
-I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
+I'm a Bachelor's student at Emory studying Computer Science & Mathematics and an incoming Software Engineering Intern at [Google](https://www.google.com/).
 
 I'm currently building a Financial Data Platform [Tries](https://github.com/polymic) at [Polymic](https://www.linkedin.com/company/polymic-tries/about/?viewAsMember=true).
 
