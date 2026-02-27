@@ -309,14 +309,14 @@ ninja.data = [{
         title: 'GitHub',
         section: 'Socials',
         handler: () => {
-          window.open("https://github.com//ethansjpark", "_blank");
+          window.open("https://github.com/ethansjpark", "_blank");
         },
       },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.linkedin.com/in//ethansjpark/", "_blank");
+          window.open("https://www.linkedin.com/in/ethansjpark", "_blank");
         },
       },{
         id: 'social-scholar',
