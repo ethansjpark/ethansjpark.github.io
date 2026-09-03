@@ -8,8 +8,8 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>Based in Atlanta, GA</p>
+  # more_info: >
+  #   <p>Based in Atlanta, GA</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -20,18 +20,18 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-👋 Hi, Ethan Here!
+👋 Hi, Ethan here!
 
-I'm a Bachelor's student at Emory studying Computer Science & Mathematics and an incoming Software Engineering Intern at [Google](https://www.google.com/).
+I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
 
-I'm currently building a Financial Data Platform [Tries](https://github.com/polymic) at [Polymic](https://www.linkedin.com/company/polymic-tries/about/?viewAsMember=true).
+I was a Software Engineering Intern at [Google](https://www.google.com/), working on Google Home's notification systems. Before that, I was a Software Development Engineer Intern at [AWS](https://aws.amazon.com/), working on Database Migration Service.
 
-I've been a Research Assistant at the [Cognition & Visualization Lab](https://cav-lab.github.io/), working on data visualization, machine learning, and neurodivergence.
+At Emory, I've done research in ML + neurodivergence.
 
-I love combining computer vision, deep reinforcement learning, and embedded systems to tackle real-world problems across industries like physical ai, fintech, and ai infrastructure.
+I'm currently building [Tries](https://github.com/polymic), a financial data platform, at [Polymic](https://www.linkedin.com/company/polymic-tries/about/).
+
+I'm interested in world models, VLMs/VLAs, and multimodal systems.
 
 I'm also passionate about engaging with and investing in early-stage startups.
-
-Worked previously at [AWS](https://aws.amazon.com/) as a software development engineer intern.
 
 Always open to conversations, feel free to reach out!
