@@ -2,9 +2,10 @@
 layout: page
 title: ThirdEye
 description: AI-Powered Motion Detection for Visually Impaired Athletes
-img: assets/img/3.jpg
+img: assets/img/thirdeye/thirdEye_thu.jpg
 importance: 4
 category: work
+published: false # hidden from the projects page; delete this line to restore
 giscus_comments: false
 ---
 
@@ -15,7 +16,7 @@ As a former soccer player, I experienced firsthand the importance of spatial awa
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         <a href="https://youtu.be/tXnnj4YRY7Y" target="_blank" rel="noopener noreferrer">
-            {% include figure.liquid loading="eager" path="assets/img/thirdEye_thu.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+            {% include figure.liquid loading="eager" path="assets/img/thirdeye/thirdEye_thu.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
         </a>
     </div>
 </div>
