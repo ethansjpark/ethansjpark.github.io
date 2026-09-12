@@ -261,12 +261,7 @@ ninja.data = [{
           window.location.href = "/blog/2024/ct/";
         
       },
-    },{id: "projects-thirdeye",
-          title: 'ThirdEye',
-          description: "AI-Powered Motion Detection for Visually Impaired Athletes",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
-            },},{id: "projects-medi",
+    },{id: "projects-medi",
           title: 'MEDi',
           description: "AI-driven medication detection platform",
           section: "Projects",handler: () => {
@@ -278,7 +273,7 @@ ninja.data = [{
               window.location.href = "/projects/3_project/";
             },},{id: "projects-tries",
           title: 'Tries',
-          description: "No-Code Financial Data Scraping and Export Platform for Investors and Analysts",
+          description: "Financial Modeling and DCF Valuation Platform for Investors and Analysts",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
             },},{
