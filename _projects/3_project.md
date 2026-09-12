@@ -2,7 +2,7 @@
 layout: page
 title: Reverie
 description: AI-powered Dream Analysis Platform for Personalized Insights
-img: assets/img/5.jpg
+img: assets/img/reverie/reverie_logo.png
 importance: 2
 category: work
 related_publications: false
@@ -22,7 +22,7 @@ The interface is intentionally minimal and calming, encouraging consistent refle
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">        
-        {% include figure.liquid loading="eager" path="assets/img/reverie_structure.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_structure.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -54,20 +54,20 @@ PostgreSQL
 Google Cloud SQL
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie_landing.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_landing.png" title="example image" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">
     Landing Page
 </div>
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie_dashboard.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_dashboard.png" title="example image" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">
     Dashboard Page
 </div>
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie_library.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_library.png" title="example image" class="img-fluid rounded z-depth-1" %}
 </div>
 <div class="caption">
     Dream Library Page
@@ -78,7 +78,7 @@ Reverie is now live. You can join us by clicking the logo below.
 <div class="row">
     <div class="col-sm-3 mt-3 mt-md-0">
         <a href="https://reverie-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
-            {% include figure.liquid loading="eager" path="assets/img/reverie_logo.png" title="logo image" class="img-fluid rounded z-depth-1" %}
+            {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_logo.png" title="logo image" class="img-fluid rounded z-depth-1" %}
         </a>
         <div class="caption mt-2">
             Click our logo! 

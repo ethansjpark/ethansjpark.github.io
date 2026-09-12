@@ -2,7 +2,7 @@
 layout: page
 title: MEDi
 description: AI-driven medication detection platform
-img: assets/img/7.jpg
+img: assets/img/medi/medi_logo.jpg
 importance: 3
 category: work
 related_publications: false
@@ -20,13 +20,13 @@ The MEDi team is constantly striving to improve and develop the platform, settin
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi_ix1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi_ix2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi_ix3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -34,13 +34,13 @@ The MEDi team is constantly striving to improve and develop the platform, settin
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/med_try1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/med_try1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/med_try2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/med_try2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/med_try3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/med_try3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -52,7 +52,7 @@ MEDi is currently in its beta testing phase. You can join us by clicking the log
 <div class="row">
     <div class="col-sm-3 mt-3 mt-md-0">
         <a href="https://play.google.com/apps/testing/com.MedI" target="_blank" rel="noopener noreferrer">
-            {% include figure.liquid loading="eager" path="assets/img/medi_logo.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+            {% include figure.liquid loading="eager" path="assets/img/medi/medi_logo.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
         </a>
         <div class="caption mt-2">
             Click our logo! 

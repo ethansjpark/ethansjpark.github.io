@@ -6,7 +6,8 @@ subtitle:
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile/prof_pic.jpg
+  alt: Ethan Park
   image_circular: false # crops the image to make it circular
   # more_info: >
   #   <p>Based in Atlanta, GA</p>
