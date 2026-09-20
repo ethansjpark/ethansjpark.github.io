@@ -139,4 +139,6 @@ No condition reaches a goal here. Every episode runs to the 500 step cap, so suc
 
 Within that signal the mock ordering reappears. Radius 8 falls below baseline, the strongest noise setting is worst of all, and r=16, r=32 and the low noise variant sit together at −5.00. The frequency sensitivity survives the change of environment even though absolute performance does not.
 
+The repository carries a 91 test suite covering the Fourier swap, the perturbation, GAE and the PPO update, both environments, the models, metrics, and plotting.
+
 If you're interested in the code, check out [freq-nav-sim2real](https://github.com/ethansjpark/freq-nav-sim2real) on GitHub! 🚀
