@@ -3,7 +3,7 @@ layout: page
 title: MEDi
 description: AI-driven medication detection platform
 img: assets/img/medi/medi_logo.jpg
-importance: 3
+importance: 4
 category: work
 related_publications: false
 ---
