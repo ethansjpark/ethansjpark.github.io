@@ -6,40 +6,59 @@ img: assets/img/freqnav/freqnav_card.png
 importance: 2
 category: work
 related_publications: false
+toc:
+  sidebar: left
+_styles: >
+  article h2 {
+    margin-top: 2.25rem;
+  }
+  article h2:first-of-type {
+    margin-top: 1rem;
+  }
+  article table {
+    margin-bottom: 1.5rem;
+  }
 ---
 
-freq-nav-sim2real studies which parts of an image a navigation agent actually depends on, by controlling what survives in the frequency domain.
+Simulated and real images differ unevenly across the spectrum: style sits in the low frequencies, geometry in the high ones. A policy leaning on the band that shifts most across domains fails on transfer, so this project locates that band by removing frequencies and watching where navigation breaks.
 
-A policy trained in simulation sees clean synthetic texture, and the real world differs from it unevenly. Lighting, color cast, and material style live mostly in the low frequencies, while edges, geometry, and fine spatial detail live in the high ones. If a policy leans on the band that changes most between domains, it breaks on transfer. The question is which band it leans on, and that is answerable by removing frequencies deliberately and watching what happens.
+## Approach
 
-The project uses Fourier Domain Adaptation to swap the low frequency amplitude spectrum between synthetic and real images while leaving phase intact, so an image keeps its structure but takes on the other domain's style. A separate perturbation module preserves a disc of radius r around the DC term and injects noise everywhere outside it, which makes the amount of surviving high frequency content a training parameter rather than a fixed property of the data.
+Fourier Domain Adaptation swaps low frequency amplitude between domains while preserving phase, so structure survives and style transfers. A perturbation module keeps a disc of radius r around the DC term and injects noise outside it, turning surviving high frequency content into a training parameter.
 
-The agent is a visual encoder feeding a PPO actor critic, evaluated on success rate and SPL across six conditions: a baseline with adaptation off, three cutoff radii, and two noise levels. Performance critical pieces run as C++ extensions through pybind11, covering generalized advantage estimation, the Fourier swap, the frequency perturbation, and the environment step loop, with Python fallbacks when the extensions are not built.
+## Architecture
 
-The results point at a sharp threshold rather than a gradual tradeoff, which is the part I found most interesting.
+Observations pass through both operators, then a three layer CNN encoder and a PPO actor critic. GAE, the Fourier swap, the perturbation, and the environment step loop run as C++ extensions through pybind11.
 
-## Technologies and Structure
+<div class="row">
+    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_architecture.png" alt="Pipeline from simulated RGB observations through Fourier domain adaptation and frequency perturbation into a three layer CNN encoder and PPO actor critic emitting navigation actions" title="System architecture" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
+<div class="caption">
+    Pipeline, with the environment feedback loop
+</div>
 
-### Learning
+## Observations
 
-PyTorch  
-PPO actor critic  
-Habitat-Sim
+Observations are encoded rather than photographic. The red channel carries goal proximity, and green and blue stripes carry distance and bearing.
 
-### Performance
+<div class="row">
+    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_episode_detail.png" alt="A successful 199 step episode alongside four observation frames showing the red proximity channel brightening and the bearing stripe centering as the agent reaches the goal" title="Episode walkthrough" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
+<div class="caption">
+    A successful episode, with its observations at four points
+</div>
 
-C++  
-pybind11
+## Stack
 
-### Data and Tooling
-
-NumPy  
-OpenCV  
-TensorBoard  
-matplotlib  
-pytest
+| Area             | Tools                                          |
+| :--------------- | :--------------------------------------------- |
+| Learning         | PyTorch, PPO actor critic, Habitat-Sim         |
+| Performance      | C++, pybind11                                  |
+| Data and tooling | NumPy, OpenCV, TensorBoard, matplotlib, pytest |
 
 ## Results
+
+Six conditions, each trained 50k steps and evaluated over 50 episodes at a fixed seed. SR is success rate; SPL weights success by how efficient the path was.
 
 | Condition        | Radius | Noise Std | SR   | SPL   |
 | :--------------- | :----- | :-------- | :--- | :---- |
@@ -51,29 +70,27 @@ pytest
 | freq_r16_noise20 | 16     | 2.0       | 1.00 | 0.998 |
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_ablation_bar.png" alt="Bar chart of success rate and SPL across six frequency ablation conditions, showing total failure at radius 8" title="Success rate and SPL by condition" class="img-fluid rounded z-depth-1" zoomable=true %}
+    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_ablation_results.png" alt="Bar chart of success rate and SPL across six frequency ablation conditions, showing total failure at radius 8 and full success from radius 16 onward" title="Success rate and SPL by condition" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
     Success rate and SPL across all six conditions
 </div>
 
-Cutting too much high frequency content is fatal. At radius 8 the agent fails every episode, timing out at the 500 step cap rather than degrading gracefully, so the detail it navigates by is genuinely gone rather than merely noisier.
+At radius 8 the agent fails every episode, running to the step cap rather than degrading. At 16 and 32 it matches or beats the baseline, so noise in place of high frequency magnitude regularizes rather than damages. Intensity barely matters: at radius 16, weak and strong noise both reach full success.
 
-Moderate perturbation does not hurt and slightly helps. Radius 16 and 32 both match or beat the baseline, which suggests that replacing some high frequency magnitude with noise during training acts as a regularizer rather than as damage.
-
-Noise intensity matters far less than the cutoff. At radius 16, both a weak and a strong noise level reach full success and near perfect SPL, so what the policy needs is enough preserved structure, not quiet inputs.
+## Threshold
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_radius_sweep.png" alt="Line plot of success rate and SPL against frequency cutoff radius, jumping from zero at radius 8 to one at radius 16" title="SR and SPL against frequency cutoff radius" class="img-fluid rounded z-depth-1" zoomable=true %}
+    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_radius_sweep.png" alt="Line plot of success rate and SPL against frequency cutoff radius, jumping from zero at radius 8 to one at radius 16, with the critical band shaded" title="SR and SPL against frequency cutoff radius" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
     The sweep is a step, not a slope
 </div>
 
-The sweep is what makes the finding worth reporting. Between radius 8 and 16 the agent goes from complete failure to perfect success, so there is a critical band in that range carrying the information the policy depends on, and losing it is not a matter of degree.
+The transition is discontinuous. Between radius 8 and 16 the agent goes from total failure to perfect success, placing the critical band in that range.
 
-These numbers come from 50k step PPO training on the mock PointNav environment, 50 evaluation episodes per condition at a fixed seed. That environment is a 2D simulator written for fast iteration, not a Habitat 3D scene, so the findings describe the frequency dependence of a policy trained there rather than a measured transfer onto real robot imagery. Extending the same ablation to Habitat scenes with real datasets is the next step.
+## Scope
 
-The repository includes a 58 test pytest suite covering the Fourier swap, perturbation, GAE and PPO update, the environment, models, metrics, and plotting.
+Results come from the mock PointNav environment, a 2D simulator rather than a Habitat 3D scene, so they characterize a policy trained there rather than a measured transfer onto real imagery. Running the same ablation on Habitat scenes is next.
 
 If you're interested in the code, check out [freq-nav-sim2real](https://github.com/ethansjpark/freq-nav-sim2real) on GitHub! 🚀
