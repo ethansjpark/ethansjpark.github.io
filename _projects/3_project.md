@@ -3,7 +3,7 @@ layout: page
 title: Reverie
 description: AI-powered Dream Analysis Platform for Personalized Insights
 img: assets/img/reverie/reverie_logo.png
-importance: 2
+importance: 3
 category: work
 related_publications: false
 ---
