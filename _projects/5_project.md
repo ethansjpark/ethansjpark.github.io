@@ -4,7 +4,7 @@ title: freq-nav-sim2real
 description: Frequency-Based Visual Invariance for Sim-to-Real Embodied Navigation
 img: assets/img/freqnav/freqnav_card.png
 importance: 2
-category: work
+category: research
 related_publications: false
 toc:
   sidebar: left

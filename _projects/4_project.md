@@ -4,7 +4,7 @@ title: Tries
 description: Financial Modeling and DCF Valuation Platform for Investors and Analysts
 img: assets/img/tries/tries_logo.png
 importance: 1
-category: work
+category: products
 related_publications: false
 toc:
   sidebar: left

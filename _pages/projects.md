@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Collection of inspirational projects
+description: Things I have built and questions I have chased
 nav: true
 nav_order: 3
-display_categories: [work]
+display_categories: [products, research]
 horizontal: false
 ---
 
