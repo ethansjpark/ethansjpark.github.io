@@ -48,6 +48,15 @@ Observations are encoded rather than photographic. The red channel carries goal 
     A successful episode, with its observations at four points
 </div>
 
+Those stripes are four pixels wide on a 224 pixel frame, which puts the whole goal signal high in the spectrum. Running the perturbation on a real observation shows what each cutoff costs.
+
+<div class="row">
+    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_method.png" alt="The same mock observation at four settings: unfiltered with crisp stripes, radius 8 where both stripes smear into the background, radius 16 where they are legible again, and radius 32 which is close to the original" title="Frequency perturbation across cutoff radii" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
+<div class="caption">
+    The same observation under each cutoff radius
+</div>
+
 ## Stack
 
 | Area             | Tools                                          |
