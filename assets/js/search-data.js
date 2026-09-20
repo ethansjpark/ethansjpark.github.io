@@ -276,6 +276,11 @@ ninja.data = [{
           description: "Financial Modeling and DCF Valuation Platform for Investors and Analysts",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
+            },},{id: "projects-freq-nav-sim2real",
+          title: 'freq-nav-sim2real',
+          description: "Frequency-Based Visual Invariance for Sim-to-Real Embodied Navigation",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_project/";
             },},{
         id: 'social-email',
         title: 'email',
