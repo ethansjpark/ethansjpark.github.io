@@ -6,56 +6,81 @@ img: assets/img/medi/medi_logo.jpg
 importance: 4
 category: work
 related_publications: false
+toc:
+  sidebar: left
+_styles: >
+  article h2 {
+    margin-top: 2.25rem;
+  }
+  article h2:first-of-type {
+    margin-top: 1rem;
+  }
+  article table {
+    margin-bottom: 1.5rem;
+  }
 ---
 
-MEDi is an AI-driven platform designed to assist visually impaired individuals in efficiently and accurately identifying pharmaceutical products in stores.
+MEDi is an AI-driven platform that helps visually impaired shoppers identify pharmaceutical products in stores, so that medication is not taken by mistake.
 
-To prevent medication misuse, my team and I developed a way to guide pharmaceutical shopping effectively. In February 2025, we launched a platform called MEDi.
+My team and I launched it in February 2025.
 
-MEDi provides step-by-step shopping guide agents by utilizing hand-tracking and object detection rather than broad assistance. For added convenience, we also offer audible recognition features, ensuring users can navigate their shopping experience with ease and confidence.
+## Approach
 
-To optimize efficiency for real-world use, we implemented TensorFlow Lite and MediaPipe, allowing us to perform model quantization and enhance performance on edge devices. The platform is built with Kotlin, ensuring a seamless and responsive experience for potential users.
+Rather than broad assistance, MEDi gives a step-by-step shopping guide built on hand-tracking and object detection, so the guidance follows where the user is actually reaching. Audible recognition carries the same information without requiring the screen.
 
-The MEDi team is constantly striving to improve and develop the platform, setting goals to provide accurate information and a user-friendly UI/UX. We are deeply committed to continually enhancing the environment for people who often remain in the shadows, ensuring they have access to tools that empower their daily lives.
+## Stack
+
+| Area       | Tools                               |
+| :--------- | :---------------------------------- |
+| App        | Kotlin, Android                     |
+| On-device  | TensorFlow Lite, MediaPipe          |
+| Optimizing | Model quantization for edge devices |
+
+Running inference on the device rather than in the cloud is what keeps the guidance responsive enough to follow a hand in real time, and quantization is what makes the models small enough to do it.
+
+## Interface
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix1.jpg" alt="MEDi app interface screen" title="MEDi interface" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix2.jpg" alt="MEDi app interface screen" title="MEDi interface" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/medi/medi_ix3.jpg" alt="MEDi app interface screen" title="MEDi interface" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    MEDi's brief UI/UX Capture
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi/med_try1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi/med_try2.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/medi/med_try3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    MEDi's camera integrated interface
+    UI walkthrough
 </div>
 
-MEDi is currently in its beta testing phase. You can join us by clicking the logo below.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/medi/med_try1.jpg" alt="MEDi camera view detecting a pharmaceutical product on a shelf" title="Camera interface" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/medi/med_try2.jpg" alt="MEDi camera view detecting a pharmaceutical product on a shelf" title="Camera interface" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/medi/med_try3.jpg" alt="MEDi camera view detecting a pharmaceutical product on a shelf" title="Camera interface" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Camera integrated interface
+</div>
+
+## Status
+
+MEDi is in beta testing. You can join us by clicking the logo below.
 
 <div class="row">
     <div class="col-sm-3 mt-3 mt-md-0">
         <a href="https://play.google.com/apps/testing/com.MedI" target="_blank" rel="noopener noreferrer">
-            {% include figure.liquid loading="eager" path="assets/img/medi/medi_logo.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+            {% include figure.liquid loading="eager" path="assets/img/medi/medi_logo.jpg" alt="MEDi logo, linking to the Play Store beta" title="Join the MEDi beta" class="img-fluid rounded z-depth-1" %}
         </a>
         <div class="caption mt-2">
-            Click our logo! 
+            Click our logo!
         </div>
     </div>
 </div>
