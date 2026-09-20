@@ -59,15 +59,15 @@ Those stripes are four pixels wide on a 224 pixel frame, which puts the whole go
 
 ## Stack
 
-| Area             | Tools                                          |
-| :--------------- | :--------------------------------------------- |
-| Learning         | PyTorch, PPO actor critic, Habitat-Sim         |
-| Performance      | C++, pybind11                                  |
-| Data and tooling | NumPy, OpenCV, TensorBoard, matplotlib, pytest |
+| Area             | Tools                                               |
+| :--------------- | :-------------------------------------------------- |
+| Learning         | PyTorch, PPO actor critic, Habitat-Sim, Habitat-Lab |
+| Performance      | C++, pybind11                                       |
+| Data and tooling | NumPy, OpenCV, TensorBoard, matplotlib, pytest      |
 
 ## Results
 
-Six conditions, each trained 50k steps and evaluated over 50 episodes at a fixed seed. SR is success rate; SPL weights success by how efficient the path was.
+Six conditions in the mock environment, each trained 50k steps and evaluated over 50 episodes at a fixed seed. SR is success rate; SPL weights success by how efficient the path was.
 
 | Condition        | Radius | Noise Std | SR   | SPL   |
 | :--------------- | :----- | :-------- | :--- | :---- |
@@ -98,8 +98,45 @@ At radius 8 the agent fails every episode, running to the step cap rather than d
 
 The transition is discontinuous. Between radius 8 and 16 the agent goes from total failure to perfect success, placing the critical band in that range.
 
-## Scope
+## Habitat Validation
 
-Results come from the mock PointNav environment, a 2D simulator rather than a Habitat 3D scene, so they characterize a policy trained there rather than a measured transfer onto real imagery. Running the same ablation on Habitat scenes is next.
+The same six conditions then ran in Habitat-Sim on reconstructed real scenes, at 200k steps with shaped rewards.
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_scene_apartment.jpg" alt="Agent-perspective render of a reconstructed apartment interior in Habitat-Sim" title="Apartment scene" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_scene_castle.jpg" alt="Agent-perspective render of a hall in Skokloster Castle, with paintings and period furniture" title="Skokloster Castle scene" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_scene_vangogh.jpg" alt="Agent-perspective render of the Van Gogh room scene" title="Van Gogh room scene" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Agent-perspective renders from the three Habitat-Sim test scenes
+</div>
+
+Photorealistic geometry and lighting replace the encoded stripes, so the frequency content the policy reads is now ordinary scene structure rather than a synthetic signal.
+
+<div class="row">
+    {% include figure.liquid loading="eager" path="assets/img/freqnav/freqnav_habitat_comparison.png" alt="Two panel comparison: mock environment success rate above, Habitat-Sim mean return below, showing the same ordering across conditions" title="Mock to 3D transfer validation" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
+<div class="caption">
+    Mock success rate above, Habitat mean return below
+</div>
+
+| Condition        | Radius | Noise Std | Mean Return |
+| :--------------- | :----- | :-------- | :---------- |
+| baseline         | —      | —         | −4.83       |
+| freq_r8          | 8      | 1.0       | −5.65       |
+| freq_r16         | 16     | 1.0       | −5.00       |
+| freq_r32         | 32     | 1.0       | −5.00       |
+| freq_r16_noise05 | 16     | 0.5       | −5.00       |
+| freq_r16_noise20 | 16     | 2.0       | −6.62       |
+
+No condition reaches a goal here. Every episode runs to the 500 step cap, so success rate and SPL are zero throughout and shaped return is the only signal separating conditions: a small CNN at 200k steps does not solve real PointNav.
+
+Within that signal the mock ordering reappears. Radius 8 falls below baseline, the strongest noise setting is worst of all, and r=16, r=32 and the low noise variant sit together at −5.00. The frequency sensitivity survives the change of environment even though absolute performance does not.
 
 If you're interested in the code, check out [freq-nav-sim2real](https://github.com/ethansjpark/freq-nav-sim2real) on GitHub! 🚀
