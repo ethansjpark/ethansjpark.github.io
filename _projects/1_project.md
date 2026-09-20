@@ -4,7 +4,7 @@ title: ThirdEye
 description: AI-Powered Motion Detection for Visually Impaired Athletes
 img: assets/img/thirdeye/thirdEye_thu.jpg
 importance: 5
-category: work
+category: products
 published: false # hidden from the projects page; delete this line to restore
 giscus_comments: false
 ---
