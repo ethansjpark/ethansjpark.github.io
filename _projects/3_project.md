@@ -6,82 +6,84 @@ img: assets/img/reverie/reverie_logo.png
 importance: 3
 category: work
 related_publications: false
+toc:
+  sidebar: left
+_styles: >
+  article h2 {
+    margin-top: 2.25rem;
+  }
+  article h2:first-of-type {
+    margin-top: 1rem;
+  }
+  article table {
+    margin-bottom: 1.5rem;
+  }
 ---
 
-Reverie is an AI powered dream journaling platform designed to help people reflect on their emotions and uncover meaningful patterns over time.
+Reverie is an AI powered dream journaling platform for reflecting on emotions and uncovering patterns over time.
 
-My team and I built Reverie as a calm and intentional space for self reflection. Rather than offering instant interpretations or clinical conclusions, the platform encourages users to slow down, record their dreams, and engage thoughtfully with AI assisted insights.
+My team and I built it as a calm, intentional space for self reflection. Rather than offering instant interpretations or clinical conclusions, it encourages users to slow down, record their dreams, and engage thoughtfully with AI assisted insights.
 
-Users can securely write and revisit dream entries while exploring recurring emotional themes through structured AI analysis. The system focuses on pattern discovery and reflective summaries rather than prescriptive meaning.
+## Approach
 
-Reverie is built as a full stack web application with a strong emphasis on privacy, reliability, and scalability. Dream entries are encrypted before storage, and the system remains stable even when AI services are unavailable.
+Users write and revisit entries while exploring recurring emotional themes through structured analysis. The system focuses on pattern discovery and reflective summaries rather than prescriptive meaning, and the interface is deliberately minimal, encouraging consistent reflection rather than constant engagement.
 
-The interface is intentionally minimal and calming, encouraging consistent reflection rather than constant engagement. Reverie continues to evolve with a focus on human centered design, sustainability, and responsible use of AI.
+## Architecture
 
-## Technologies and Structure
+A full stack web application built around privacy and reliability. Dream entries are encrypted before storage, and the system stays stable even when AI services are unavailable.
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">        
-        {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_structure.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_structure.png" alt="Reverie's technology structure, from the Next.js frontend through the Python backend and AI layer to the PostgreSQL database" title="Reverie's technology structure" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    Reverie's technology structure
+    Technology structure
 </div>
 
-### Frontend
+## Stack
 
-Next.js  
-TypeScript  
-Vercel
+| Area     | Tools                                     |
+| :------- | :---------------------------------------- |
+| Frontend | Next.js, TypeScript, Vercel               |
+| Backend  | Python, Flask, FastAPI, Cloud Run         |
+| AI layer | TinyLLaMA, LoRA fine tuning, Hugging Face |
+| Database | PostgreSQL, Google Cloud SQL              |
 
-### Backend
-
-Python  
-Flask  
-FastAPI  
-Google Cloud Run
-
-### AI Layer
-
-TinyLLaMA  
-LoRA fine tuning  
-Hugging Face
-
-### Database
-
-PostgreSQL  
-Google Cloud SQL
+## Interface
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_landing.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_landing.png" alt="The Reverie landing page" title="Landing page" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    Landing Page
+    Landing page
 </div>
 
 <div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_dashboard.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_dashboard.png" alt="The Reverie dashboard, showing recorded dream entries and emotional themes" title="Dashboard" class="img-fluid rounded z-depth-1" zoomable=true %}
 </div>
 <div class="caption">
-    Dashboard Page
-</div>
-<div class="row">
-    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_library.png" title="example image" class="img-fluid rounded z-depth-1" %}
-</div>
-<div class="caption">
-    Dream Library Page
+    Dashboard
 </div>
 
-Reverie is now live. You can join us by clicking the logo below.
+<div class="row">
+    {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_library.png" alt="The Reverie dream library, listing past entries for review" title="Dream library" class="img-fluid rounded z-depth-1" zoomable=true %}
+</div>
+<div class="caption">
+    Dream library
+</div>
+
+## Live
+
+Reverie is live. You can join us by clicking the logo below.
 
 <div class="row">
     <div class="col-sm-3 mt-3 mt-md-0">
         <a href="https://reverie-ai.vercel.app/" target="_blank" rel="noopener noreferrer">
-            {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_logo.png" title="logo image" class="img-fluid rounded z-depth-1" %}
+            {% include figure.liquid loading="eager" path="assets/img/reverie/reverie_logo.png" alt="Reverie logo, linking to the live site" title="Open Reverie" class="img-fluid rounded z-depth-1" %}
         </a>
         <div class="caption mt-2">
-            Click our logo! 
+            Click our logo!
         </div>
     </div>
 </div>
