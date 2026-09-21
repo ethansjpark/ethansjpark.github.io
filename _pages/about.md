@@ -31,7 +31,7 @@ At Emory, I've done research in ML + neurodivergence.
 
 I'm currently building [Tries](https://github.com/polymic), a financial data platform, at [Polymic](https://www.linkedin.com/company/polymic-tries/about/).
 
-I'm interested in world models, VLMs/VLAs, and multimodal systems.
+I'm interested in world models, VLMs/VLAs, safety, and agentic systems.
 
 I'm also passionate about engaging with and investing in early-stage startups.
 
