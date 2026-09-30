@@ -209,39 +209,50 @@ svg.inline-icon {
   display: inline-block;
   margin-right: 0.1em;
   fill: currentColor;
+  transition: fill 0.2s ease;
+}
+
+.logo-polymic svg.inline-icon {
   stroke: currentColor;
   transition:
     fill 0.2s ease,
     stroke 0.2s ease;
 }
 
-.logo-link {
-  display: inline;
+.company-link {
+  color: var(--global-text-color);
+
+  &,
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  &:hover {
+    color: var(--global-theme-color);
+  }
 }
 
 @media (hover: hover) {
-  .logo-google:hover svg path:nth-child(1),
-  .logo-google:focus-within svg path:nth-child(1) {
-    fill: #4285f4;
+  .company-link.logo-google:hover {
+    svg path:nth-child(1) {
+      fill: #4285f4;
+    }
+    svg path:nth-child(2) {
+      fill: #34a853;
+    }
+    svg path:nth-child(3) {
+      fill: #fbbc05;
+    }
+    svg path:nth-child(4) {
+      fill: #ea4335;
+    }
   }
-  .logo-google:hover svg path:nth-child(2),
-  .logo-google:focus-within svg path:nth-child(2) {
-    fill: #34a853;
-  }
-  .logo-google:hover svg path:nth-child(3),
-  .logo-google:focus-within svg path:nth-child(3) {
-    fill: #fbbc05;
-  }
-  .logo-google:hover svg path:nth-child(4),
-  .logo-google:focus-within svg path:nth-child(4) {
-    fill: #ea4335;
-  }
-  .logo-aws:hover svg,
-  .logo-aws:focus-within svg {
+  .company-link.logo-aws:hover svg {
     fill: #ff9900;
   }
-  .logo-polymic:hover svg,
-  .logo-polymic:focus-within svg {
+  .company-link.logo-polymic:hover svg {
     fill: #e8601c;
     stroke: #e8601c;
   }
