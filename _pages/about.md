@@ -21,18 +21,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi, Ethan here!
+Born in D.C., raised in Seoul. On leave from CS + Math at Emory.
 
-I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
+Currently at <img class="inline-icon" src="/assets/img/icons/polymic.svg" alt="Polymic">[Polymic](https://www.linkedin.com/company/polymic-tries/about/), building [Tries](https://github.com/polymic), a financial data platform.
 
-I was a Software Engineering Intern at <img class="inline-icon" src="/assets/img/icons/google.svg" alt="Google">[Google](https://www.google.com/), working on Google Home's notification systems. Before that, I was a Software Development Engineer Intern at <img class="inline-icon" src="/assets/img/icons/aws.svg" alt="AWS">[AWS](https://aws.amazon.com/), working on Database Migration Service.
+Previously at <img class="inline-icon" src="/assets/img/icons/google.svg" alt="Google">[Google](https://www.google.com/) and <img class="inline-icon" src="/assets/img/icons/aws.svg" alt="AWS">[AWS](https://aws.amazon.com/). Research in ML + neurodivergence at Emory.
 
-At Emory, I've done research in ML + neurodivergence.
-
-I'm currently building [Tries](https://github.com/polymic), a financial data platform, at <img class="inline-icon" src="/assets/img/icons/polymic.svg" alt="Polymic">[Polymic](https://www.linkedin.com/company/polymic-tries/about/).
-
-I'm interested in world models, VLMs/VLAs, safety, and agentic systems.
-
-I'm also passionate about engaging with and investing in early-stage startups.
-
-Always open to conversations, feel free to reach out!
+Interested in world models, VLMs/VLAs, safety, and agentic systems, and in investing in early-stage startups.
