@@ -202,12 +202,49 @@ ul.task-list input[type="checkbox"] {
 }
 
 // Inline company icons
-.inline-icon {
+svg.inline-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
   display: inline-block;
   margin-right: 0.1em;
+  fill: currentColor;
+  stroke: currentColor;
+  transition:
+    fill 0.2s ease,
+    stroke 0.2s ease;
+}
+
+.logo-link {
+  display: inline;
+}
+
+@media (hover: hover) {
+  .logo-google:hover svg path:nth-child(1),
+  .logo-google:focus-within svg path:nth-child(1) {
+    fill: #4285f4;
+  }
+  .logo-google:hover svg path:nth-child(2),
+  .logo-google:focus-within svg path:nth-child(2) {
+    fill: #34a853;
+  }
+  .logo-google:hover svg path:nth-child(3),
+  .logo-google:focus-within svg path:nth-child(3) {
+    fill: #fbbc05;
+  }
+  .logo-google:hover svg path:nth-child(4),
+  .logo-google:focus-within svg path:nth-child(4) {
+    fill: #ea4335;
+  }
+  .logo-aws:hover svg,
+  .logo-aws:focus-within svg {
+    fill: #ff9900;
+  }
+  .logo-polymic:hover svg,
+  .logo-polymic:focus-within svg {
+    fill: #e8601c;
+    stroke: #e8601c;
+  }
 }
 
 // Profile
@@ -241,7 +278,8 @@ ul.task-list input[type="checkbox"] {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 25%;
+    margin-top: 0.25rem;
 
     .address {
       p {
