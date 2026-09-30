@@ -12,9 +12,13 @@
     {% if post.redirect == blank %}
       <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ post.title }}</a>
     {% elsif post.redirect contains '://' %}
-      <a href="{{ post.redirect }}" target="_blank" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ post.title }}</a>
+      <a href="{{ post.redirect }}" target="_blank" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">
+        {{- post.title -}}
+      </a>
     {% else %}
-      <a href="{{ post.redirect | relative_url }}" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ post.title }}</a>
+      <a href="{{ post.redirect | relative_url }}" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">
+        {{- post.title -}}
+      </a>
     {% endif %}
     {% if post.description %}
       <span style="font-size: 0.8rem; color: var(--global-text-color-light); margin-left: 0.5rem;">{{ post.description }}</span>
@@ -22,5 +26,5 @@
   </div>
 {% endfor %}
 {% if have_related_posts %}
-    </div>
+  </div>
 {% endif %}
