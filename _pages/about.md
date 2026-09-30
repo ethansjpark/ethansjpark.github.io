@@ -21,15 +21,15 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-👋 Hi, Ethan here!
+Hi, Ethan here!
 
 I'm a Bachelor's student at Emory studying Computer Science & Mathematics.
 
-I was a Software Engineering Intern at [Google](https://www.google.com/), working on Google Home's notification systems. Before that, I was a Software Development Engineer Intern at [AWS](https://aws.amazon.com/), working on Database Migration Service.
+I was a Software Engineering Intern at <img class="inline-icon" src="/assets/img/icons/google.svg" alt="Google">[Google](https://www.google.com/), working on Google Home's notification systems. Before that, I was a Software Development Engineer Intern at <img class="inline-icon" src="/assets/img/icons/aws.svg" alt="AWS">[AWS](https://aws.amazon.com/), working on Database Migration Service.
 
 At Emory, I've done research in ML + neurodivergence.
 
-I'm currently building [Tries](https://github.com/polymic), a financial data platform, at [Polymic](https://www.linkedin.com/company/polymic-tries/about/).
+I'm currently building [Tries](https://github.com/polymic), a financial data platform, at <img class="inline-icon" src="/assets/img/icons/polymic.svg" alt="Polymic">[Polymic](https://www.linkedin.com/company/polymic-tries/about/).
 
 I'm interested in world models, VLMs/VLAs, safety, and agentic systems.
 

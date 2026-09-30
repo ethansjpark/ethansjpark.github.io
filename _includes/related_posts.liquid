@@ -4,92 +4,23 @@
     {% assign have_related_posts = true %}
     <br>
     <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
-
-    <!-- Adds related posts to the end of an article -->
-    <p class="mb-2">Here are some more photos you might like to enjoy next:</p>
+    <p class="mb-2" style="font-size: 0.875rem; color: var(--global-text-color-light);">Next</p>
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
   {% endunless %}
 
-  <li class="my-2">
+  <div>
     {% if post.redirect == blank %}
-      <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ post.title }}</a>
     {% elsif post.redirect contains '://' %}
-      <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
-      <svg width="1rem" height="1rem" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
+      <a href="{{ post.redirect }}" target="_blank" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ post.title }}</a>
     {% else %}
-      <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
+      <a href="{{ post.redirect | relative_url }}" style="text-decoration: none; color: var(--global-theme-color); font-weight: 500;">{{ post.title }}</a>
     {% endif %}
-  </li>
-{% endfor %}
-{% if site.newsletter.enabled and site.footer_fixed %}
-  <p class="mb-2" style="margin-top: 1.5rem !important">Subscribe to be notified of future articles:</p>
-  {% include newsletter.liquid left=true %}
-{% endif %}
-
-<!-- Next & Previous Buttons -->
-<!--
-  <div class="post-navigation {% if site.enable_darkmode %} dark-mode {% else %} light-mode {% endif %}">
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" class="btn next-button">&larr; Previous</a>
-    {% endif %}
-
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" class="btn prev-button">Next &rarr;</a>
+    {% if post.description %}
+      <span style="font-size: 0.8rem; color: var(--global-text-color-light); margin-left: 0.5rem;">{{ post.description }}</span>
     {% endif %}
   </div>
-
-  <style>
-    /* Ensure full-width navigation bar */
-    .post-navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 20px 0;
-    }
-
-    /* Button Styling */
-    .btn {
-        padding: 12px 24px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, transform 0.2s;
-        text-decoration: none;
-        color: white;
-        display: inline-block;
-    }
-
-    .next-button {
-        margin-right: auto; /* Pushes next to the far left */
-    }
-
-    .prev-button {
-        margin-left: auto; /* Pushes previous to the far right */
-    }
-
-    /* Light Mode Styling */
-    .light-mode .btn {
-        background-color: #fc8a17; /* Orange for Light Mode */
-    }
-
-    .light-mode .btn:hover {
-        background-color: #e57a14; /* Darker Orange */
-        transform: scale(1.05);
-    }
-
-    /* Dark Mode Styling */
-    .dark-mode .btn {
-        background-color: #00369f; /* Blue for Dark Mode */
-    }
-
-    .dark-mode .btn:hover {
-        background-color: #002a7f; /* Darker Blue */
-        transform: scale(1.05);
-    }
-  </style>
--->
+{% endfor %}
+{% if have_related_posts %}
+    </div>
+{% endif %}

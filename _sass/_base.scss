@@ -168,6 +168,13 @@ ul.task-list input[type="checkbox"] {
 
 .card {
   background-color: var(--global-card-bg-color);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
 
   .card-img {
     width: 100%;
@@ -190,10 +197,23 @@ ul.task-list input[type="checkbox"] {
   color: var(--global-theme-color);
 }
 
+// Inline company icons
+.inline-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  display: inline-block;
+  margin-right: 0.1em;
+}
+
 // Profile
 
 .profile {
   width: 100%;
+
+  img {
+    border-radius: 10px !important;
+  }
 
   .more-info {
     margin-bottom: 5px;
@@ -285,10 +305,15 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
 
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    transition: color 0.15s ease;
 
     &:hover {
       color: var(--global-hover-color);
@@ -399,31 +424,33 @@ ul.task-list input[type="checkbox"] {
 
 .social {
   text-align: center;
+  margin-top: 2rem;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
 
     a {
       img {
-        width: 3.2rem;
-        height: 3.2rem;
-        margin-bottom: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
       }
 
       svg {
-        width: 3.5rem;
-        height: 4rem;
-        margin-bottom: 0.5rem;
+        width: 1.5rem;
+        height: 1.6rem;
 
         image {
-          width: 3.5rem;
-          height: 3.5rem;
+          width: 1.5rem;
+          height: 1.5rem;
         }
       }
 
       i::before {
         color: var(--global-text-color);
-        transition-property: all 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out;
       }
 
       &:hover {
@@ -437,7 +464,9 @@ ul.task-list input[type="checkbox"] {
   }
 
   .contact-note {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    color: var(--global-text-color-light);
   }
 }
 
@@ -474,12 +503,13 @@ ul.task-list input[type="checkbox"] {
 // Footer
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.01em;
 
   .container {
     color: var(--global-footer-text-color);
-    padding-top: 9px;
-    padding-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
   }
 
@@ -548,13 +578,22 @@ footer.sticky-bottom {
 
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
-  text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   h1 {
-    color: var(--global-theme-color);
-    font-size: 5rem;
+    color: var(--global-text-color);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    color: var(--global-text-color-light);
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 0;
   }
 }
 
@@ -578,6 +617,9 @@ footer.sticky-bottom {
 }
 
 .post-title {
+  font-size: 1.75rem !important;
+  font-weight: 600;
+
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
@@ -591,8 +633,8 @@ footer.sticky-bottom {
   li {
     border-bottom: 1px solid var(--global-divider-color);
     list-style: none;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 
     .post-meta {
       color: var(--global-text-color-light);
@@ -625,20 +667,31 @@ footer.sticky-bottom {
 .pagination {
   .page-item {
     .page-link {
-      color: var(--global-text-color);
-      padding: 0.75rem 1.15rem;
+      color: var(--global-text-color-light);
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50% !important;
+      border: none !important;
+      background: transparent;
+      font-size: 0.8rem;
 
       &:hover {
-        color: $black-color;
+        color: var(--global-text-color);
+        background-color: var(--global-divider-color);
       }
     }
 
     &.active .page-link {
       color: $white-color;
-      background-color: var(--global-theme-color);
+      background-color: var(--global-theme-color) !important;
+      border-color: var(--global-theme-color) !important;
 
       &:hover {
-        background-color: var(--global-theme-color);
+        background-color: var(--global-theme-color) !important;
       }
     }
   }
@@ -683,12 +736,23 @@ footer.sticky-bottom {
   }
 
   h2.category {
-    color: var(--global-divider-color);
-    border-bottom: 1px solid var(--global-divider-color);
-    padding-top: 0.5rem;
+    color: var(--global-text-color-light);
+    border-bottom: none;
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: 1.5rem;
     margin-top: 2rem;
-    margin-bottom: 1rem;
-    text-align: right;
+    margin-bottom: 0.75rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  > a:first-of-type h2.category {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -912,14 +976,16 @@ html.transition *:after {
   .post-meta {
     color: var(--global-text-color-light);
     font-size: 0.875rem;
-    margin-bottom: 0;
+  }
+
+  .post-date {
+    color: var(--global-text-color-light);
+    font-size: 0.8rem;
+    margin-top: -0.25rem;
   }
 
   .post-tags {
-    color: var(--global-text-color-light);
-    font-size: 0.875rem;
-    padding-top: 0.25rem;
-    padding-bottom: 1rem;
+    display: none;
 
     a {
       color: var(--global-text-color-light);
