@@ -1,92 +1,77 @@
 ---
-layout: default
+layout: page
 permalink: /gallery/
 title: gallery
 nav: true
 nav_order: 1
-pagination:
-  enabled: true
-  collection: posts
-  permalink: /page/:num/
-  per_page: 5
-  sort_field: date
-  sort_reverse: true
-  trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
 ---
 
-<div class="post">
+{% assign photos = site.data.gallery | sort: "date" | reverse %}
 
-{% assign blog_name_size = site.blog_name | size %}
-{% assign blog_description_size = site.blog_description | size %}
+{% capture tiles_all %}{% for p in photos %}{% include gallery_tile.liquid p=p %}{% endfor %}{% endcapture %}
 
-{% if blog_name_size > 0 or blog_description_size > 0 %}
-
-  <div class="header-bar">
-    <h1>{{ site.blog_name }}</h1>
-    <h2>{{ site.blog_description }}</h2>
+<div class="gallery">
+  <div class="g-views" role="group" aria-label="View">
+    <button type="button" data-view="grid" aria-pressed="true">Grid</button>
+    <button type="button" data-view="list" aria-pressed="false">List</button>
+    <button type="button" data-view="city" aria-pressed="false">City</button>
+    <button type="button" data-view="series" aria-pressed="false">Series</button>
   </div>
-  {% endif %}
 
-  <ul class="post-list">
-
-    {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts %}
-    {% else %}
-      {% assign postlist = site.posts %}
-    {% endif %}
-
-    {% for post in postlist %}
-
-    {% if post.external_source == blank %}
-      {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
-    {% else %}
-      {% assign read_time = post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 %}
-    {% endif %}
-    {% assign year = post.date | date: "%Y" %}
-    {% assign tags = post.tags | join: "" %}
-    {% assign categories = post.categories | join: "" %}
-
-    <li>
-
-{% if post.thumbnail %}
-
-<div class="row">
-          <div class="col-sm-9">
-{% endif %}
-    <h3>
-        {% if post.redirect == blank %}
-          <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% elsif post.redirect contains '://' %}
-          <a class="post-title" href="{{ post.redirect }}" target="_blank">{{ post.title }}</a>
-          <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        {% else %}
-          <a class="post-title" href="{{ post.redirect | relative_url }}">{{ post.title }}</a>
-        {% endif %}
-      </h3>
-      <p>{{ post.description }}</p>
-      <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
-
-{% if post.thumbnail %}
-
-</div>
-
-  <div class="col-sm-3">
-    <img class="card-img" src="{{ post.thumbnail | relative_url }}" style="object-fit: cover; height: 90%" alt="image">
+  <div class="g-view" data-view="grid">
+    <div class="g-grid">{{ tiles_all }}</div>
   </div>
-</div>
-{% endif %}
-    </li>
 
+  <div class="g-view" data-view="list" hidden>
+    <ul class="g-list">
+      {% for p in photos %}
+      <li><a href="{{ p.url | relative_url }}"><span class="t">{{ p.title }}</span><span class="c">{{ p.city }}</span><span class="y">{{ p.date | date: "%Y" }}</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="g-view" data-view="city" hidden>
+    {% assign groups = photos | group_by: "city" | sort: "name" %}
+    {% for g in groups %}
+    <section class="g-group">
+      <h2 class="g-head">{{ g.name }}<span>{{ g.size }}</span></h2>
+      <div class="g-grid">{% for p in g.items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
+    </section>
     {% endfor %}
+  </div>
 
-  </ul>
-
-{% if page.pagination.enabled %}
-{% include pagination.liquid %}
-{% endif %}
-
+  <div class="g-view" data-view="series" hidden>
+    {% assign groups = photos | group_by: "series" | sort: "name" %}
+    {% for g in groups %}{% if g.name != "" and g.name != nil %}
+    <section class="g-group">
+      <h2 class="g-head">{{ g.name }}<span>{{ g.size }}</span></h2>
+      <div class="g-grid">{% for p in g.items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
+    </section>
+    {% endif %}{% endfor %}
+    {% for g in groups %}{% if g.name == "" or g.name == nil %}
+    <section class="g-group">
+      <div class="g-grid">{% for p in g.items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
+    </section>
+    {% endif %}{% endfor %}
+  </div>
 </div>
+
+<script>
+  (function () {
+    var root = document.querySelector(".gallery");
+    var btns = root.querySelectorAll(".g-views button");
+    var views = root.querySelectorAll(".g-view");
+    function show(name) {
+      btns.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.view === name); });
+      views.forEach(function (v) { v.hidden = v.dataset.view !== name; });
+    }
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        show(b.dataset.view);
+        history.replaceState(null, "", "#" + b.dataset.view);
+      });
+    });
+    var h = location.hash.slice(1);
+    if (root.querySelector('.g-view[data-view="' + h + '"]')) show(h);
+  })();
+</script>
