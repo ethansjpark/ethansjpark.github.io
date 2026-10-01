@@ -49,8 +49,11 @@
     position: relative;
     display: block;
     overflow: hidden;
+    // width = aspect * row height (via aspect-ratio), grows by aspect to justify the row.
+    // No calc(): CI's CSS minifier mangles var(--x) inside calc multiplication.
+    height: var(--g-row);
     aspect-ratio: var(--ar);
-    flex: var(--ar) 1 calc(var(--ar) * var(--g-row));
+    flex: var(--ar) 1 auto;
     min-width: 0;
     color: #fff;
     text-decoration: none;
