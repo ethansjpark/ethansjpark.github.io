@@ -29,4 +29,4 @@ Previously at <a class="company-link logo-google" href="https://www.google.com/"
 
 Also did research in ML + neurodivergence at Emory.
 
-Interested in world models, VLMs/VLAs, safety, and agentic systems, and in investing in early-stage startups.
+Interested in world models, VLMs/VLAs, safety, agentic systems, and investing in early-stage startups.
