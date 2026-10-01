@@ -30,29 +30,34 @@ nav_order: 1
     </ul>
   </div>
 
+  {%- comment -%} City order: gallery_cities.yml first, then the rest alphabetically {%- endcomment -%}
+  {% assign city_groups = photos | group_by: "city" | sort: "name" %}
+  {% assign ordered = "" %}
+  {% for c in site.data.gallery_cities %}{% assign ordered = ordered | append: c | append: "|" %}{% endfor %}
+  {% for g in city_groups %}{% unless site.data.gallery_cities contains g.name %}{% assign ordered = ordered | append: g.name | append: "|" %}{% endunless %}{% endfor %}
+  {% assign ordered = ordered | split: "|" %}
+
   <div class="g-view" data-view="city" hidden>
-    {% assign groups = photos | group_by: "city" | sort: "name" %}
-    {% for g in groups %}
+    {% for c in ordered %}{% assign items = photos | where: "city", c %}{% if items.size > 0 %}
     <section class="g-group">
-      <h2 class="g-head">{{ g.name }}<span>{{ g.size }}</span></h2>
-      <div class="g-grid">{% for p in g.items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
+      <h2 class="g-head">{{ c }}<span>{{ items.size }}</span></h2>
+      <div class="g-grid">{% for p in items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
     </section>
-    {% endfor %}
+    {% endif %}{% endfor %}
   </div>
 
+  {%- comment -%} Series = "City Year", year from the same date the overlay shows {%- endcomment -%}
   <div class="g-view" data-view="series" hidden>
-    {% assign groups = photos | group_by: "series" | sort: "name" %}
-    {% for g in groups %}{% if g.name != "" and g.name != nil %}
+    {% for c in ordered %}{% assign items = photos | where: "city", c %}
+    {% assign seen = "" %}
+    {% for p in items %}{% assign y = p.date | date: "%Y" %}{% unless seen contains y %}{% assign seen = seen | append: y | append: "|" %}
+    {% assign n = 0 %}{% for q in items %}{% assign qy = q.date | date: "%Y" %}{% if qy == y %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}
     <section class="g-group">
-      <h2 class="g-head">{{ g.name }}<span>{{ g.size }}</span></h2>
-      <div class="g-grid">{% for p in g.items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
+      <h2 class="g-head">{{ c }} {{ y }}<span>{{ n }}</span></h2>
+      <div class="g-grid">{% for q in items %}{% assign qy = q.date | date: "%Y" %}{% if qy == y %}{% include gallery_tile.liquid p=q %}{% endif %}{% endfor %}</div>
     </section>
-    {% endif %}{% endfor %}
-    {% for g in groups %}{% if g.name == "" or g.name == nil %}
-    <section class="g-group">
-      <div class="g-grid">{% for p in g.items %}{% include gallery_tile.liquid p=p %}{% endfor %}</div>
-    </section>
-    {% endif %}{% endfor %}
+    {% endunless %}{% endfor %}
+    {% endfor %}
   </div>
 </div>
 

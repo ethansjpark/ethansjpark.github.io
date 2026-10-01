@@ -1,4 +1,4 @@
-# Photos. Add: title, city, date, image (+ optional series, url).
+# Photos. Add: title, city, date, image (+ optional url).
 # width/height are filled by `python3 bin/gallery_dims.py`.
 
 - title: roof of shadow

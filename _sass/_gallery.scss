@@ -71,18 +71,24 @@
       align-items: center;
       padding: 0.5rem;
       text-align: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.68);
       opacity: 0;
       transition: opacity 0.2s ease;
       font-size: 0.875rem;
       line-height: 1.3;
 
+      // explicit colors: never inherit the theme text/link color
+      b,
+      i {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
       b {
         font-weight: 500;
+        color: #fff;
       }
       i {
         font-style: normal;
-        opacity: 0.75;
+        color: rgba(255, 255, 255, 0.85);
         font-size: 0.8125rem;
       }
     }
