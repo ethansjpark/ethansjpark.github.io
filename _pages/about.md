@@ -19,6 +19,8 @@ latest_posts:
   enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
+nav: true
+nav_order: 4
 ---
 
 Born in D.C., raised in Seoul. On leave from CS + Math at Emory.

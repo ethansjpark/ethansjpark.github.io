@@ -1,0 +1,109 @@
+// Minimal site navbar: name left, links right, hairline underneath. Not sticky.
+.site-nav {
+  border-bottom: 0.5px solid var(--global-divider-color);
+  background: none;
+}
+
+.site-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+}
+
+.site-name {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--global-text-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--global-text-color);
+    text-decoration: none;
+  }
+}
+
+.site-links {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--global-text-color);
+    text-decoration: none;
+  }
+
+  &[aria-current="page"] {
+    color: var(--global-theme-color);
+    font-weight: 400;
+    text-decoration: none;
+  }
+}
+
+.site-theme {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--global-text-color-light);
+  cursor: pointer;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--global-text-color);
+  }
+
+  // Hint at the current setting: light = left half filled, dark = right half, system = top half.
+  svg {
+    transform: rotate(90deg);
+  }
+}
+
+html[data-theme-setting="light"] .site-theme svg {
+  transform: none;
+}
+
+html[data-theme-setting="dark"] .site-theme svg {
+  transform: rotate(180deg);
+}
+
+.site-name:focus-visible,
+.site-link:focus-visible,
+.site-theme:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+// Phones: keep all four links in one row (no hamburger) and let the name shrink.
+@media (max-width: 575px) {
+  .site-nav-inner {
+    gap: 8px;
+  }
+
+  .site-name {
+    font-size: 1.0625rem;
+  }
+
+  .site-links {
+    gap: 12px;
+  }
+}

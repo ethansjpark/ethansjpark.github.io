@@ -5,6 +5,9 @@
 @use "sass:color";
 
 :root {
+  // Display (serif) stack for the site name and project titles. The site has no webfont for
+  // this, so it uses system serifs; swap this one value to change it everywhere.
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   color-scheme: light;
   --global-bg-color: #eceae4;
   --global-code-bg-color: #{$code-bg-color-light};
