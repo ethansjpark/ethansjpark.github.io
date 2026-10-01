@@ -12,6 +12,8 @@ group :jekyll_plugins do
     gem 'jekyll-jupyter-notebook'
     gem 'jekyll-link-attributes'
     gem 'jekyll-minifier'
+    # cssminify2 2.1.0 mangles var(--x) inside calc() in the CI build (emits "var( -  - x)"), so stay on 2.0.1.
+    gem 'cssminify2', '2.0.1'
     gem 'jekyll-paginate-v2'
     gem 'jekyll-regex-replace'
     gem 'jekyll-scholar'
