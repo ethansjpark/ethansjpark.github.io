@@ -30,16 +30,16 @@ nav_order: 1
     </ul>
   </div>
 
-  {%- comment -%} City order: gallery_cities.yml first, then the rest alphabetically; case/accent-insensitive {%- endcomment -%}
-  {% assign listed = "" %}{% assign listed_keys = "~" %}
-  {% for c in site.data.gallery_cities %}{% include gallery_norm.liquid s=c %}{% assign listed = listed | append: norm | append: "~" | append: c | append: "|" %}{% assign listed_keys = listed_keys | append: norm | append: "~" %}{% endfor %}
-  {% assign extras = "" %}{% assign extra_keys = "~" %}
-  {% for p in photos %}{% include gallery_norm.liquid s=p.city %}{% assign probe = "~" | append: norm | append: "~" %}
-    {% unless listed_keys contains probe or extra_keys contains probe %}{% assign extra_keys = extra_keys | append: norm | append: "~" %}{% assign extras = extras | append: norm | append: "~" | append: p.city | append: "|" %}{% endunless %}
-  {% endfor %}
-  {% assign ordered = listed | split: "|" %}
-  {% assign extras = extras | split: "|" | sort %}
-  {% assign ordered = ordered | concat: extras %}
+{%- comment -%} City order: gallery_cities.yml first, then the rest alphabetically; case/accent-insensitive {%- endcomment -%}
+{% assign listed = "" %}{% assign listed_keys = "~" %}
+{% for c in site.data.gallery_cities %}{% include gallery_norm.liquid s=c %}{% assign listed = listed | append: norm | append: "~" | append: c | append: "|" %}{% assign listed_keys = listed_keys | append: norm | append: "~" %}{% endfor %}
+{% assign extras = "" %}{% assign extra_keys = "~" %}
+{% for p in photos %}{% include gallery_norm.liquid s=p.city %}{% assign probe = "~" | append: norm | append: "~" %}
+{% unless listed_keys contains probe or extra_keys contains probe %}{% assign extra_keys = extra_keys | append: norm | append: "~" %}{% assign extras = extras | append: norm | append: "~" | append: p.city | append: "|" %}{% endunless %}
+{% endfor %}
+{% assign ordered = listed | split: "|" %}
+{% assign extras = extras | split: "|" | sort %}
+{% assign ordered = ordered | concat: extras %}
 
   <div class="g-view" data-view="city" hidden>
     {% for entry in ordered %}{% assign parts = entry | split: "~" %}
@@ -52,7 +52,8 @@ nav_order: 1
     {% endif %}{% endfor %}
   </div>
 
-  {%- comment -%} Series = "City Year", year from the same date the overlay shows {%- endcomment -%}
+{%- comment -%} Series = "City Year", year from the same date the overlay shows {%- endcomment -%}
+
   <div class="g-view" data-view="series" hidden>
     {% for entry in ordered %}{% assign parts = entry | split: "~" %}{% assign c = parts[1] %}
     {% assign ckey = parts[0] %}{% include gallery_by_city.liquid photos=photos key=ckey %}{% assign items = city_items %}

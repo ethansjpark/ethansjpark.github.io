@@ -6,13 +6,28 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">{{ photo.title }}</h1>
     <p class="photo-city">{{ photo.city }}</p>
-    <p class="photo-date">{{ photo.date | date: "%B %-d, %Y" }}</p>
+    <p class="photo-date">{{ photo.date | date: '%B %-d, %Y' }}</p>
   </header>
 
-  <img class="photo-img" data-zoomable src="{{ photo.image | relative_url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.title }}">
+  <img
+    class="photo-img"
+    data-zoomable
+    src="{{ photo.image | relative_url }}"
+    width="{{ photo.width }}"
+    height="{{ photo.height }}"
+    alt="{{ photo.title }}"
+  >
 
   <nav class="photo-nav">
-    <span>{% if page.prev %}<a href="{{ page.prev.url | relative_url }}">Previous</a>{% endif %}</span>
-    <span>{% if page.next %}<a href="{{ page.next.url | relative_url }}">Next</a>{% endif %}</span>
+    <span>
+      {%- if page.prev -%}
+        <a href="{{ page.prev.url | relative_url }}">Previous</a>
+      {%- endif -%}
+    </span>
+    <span>
+      {%- if page.next -%}
+        <a href="{{ page.next.url | relative_url }}">Next</a>
+      {%- endif -%}
+    </span>
   </nav>
 </div>
