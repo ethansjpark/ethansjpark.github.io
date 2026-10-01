@@ -11,17 +11,26 @@
       border: 0;
       padding: 0;
       font: inherit;
+      font-weight: 400;
       color: var(--global-text-color-light);
       cursor: pointer;
-      text-underline-offset: 4px;
-      text-decoration-thickness: 1px;
+      transition: color 0.15s ease;
 
-      &:hover,
-      &[aria-pressed="true"] {
+      &:hover {
         color: var(--global-text-color);
       }
-      &[aria-pressed="true"] {
-        text-decoration: underline;
+
+      // current view: same treatment as the current link in the navbar
+      &[aria-pressed="true"],
+      &[aria-pressed="true"]:hover {
+        color: var(--global-theme-color);
+        text-decoration: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 3px;
+        border-radius: 2px;
       }
     }
   }
