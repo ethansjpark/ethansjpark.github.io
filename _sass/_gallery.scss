@@ -1,8 +1,5 @@
 // Gallery page: justified rows, plain-text view toggle
 .gallery {
-  --g-row: 220px;
-  --g-gap: 6px;
-
   .g-views {
     display: flex;
     gap: 1.25rem;
@@ -36,12 +33,13 @@
   .g-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--g-gap);
+    gap: 6px;
 
     // trailing spacer so the last row keeps natural tile widths
     &::after {
       content: "";
-      flex: 1000 1 0;
+      flex-grow: 100000;
+      flex-basis: 0;
     }
   }
 
@@ -49,11 +47,11 @@
     position: relative;
     display: block;
     overflow: hidden;
-    // width = aspect * row height (via aspect-ratio), grows by aspect to justify the row.
-    // No calc(): CI's CSS minifier mangles var(--x) inside calc multiplication.
-    height: var(--g-row);
-    aspect-ratio: var(--ar);
-    flex: var(--ar) 1 auto;
+    // Width comes from the inline aspect-ratio + flex-grow (set per tile in
+    // _includes/gallery_tile.liquid); height is the row height, set here per breakpoint.
+    height: 220px;
+    flex-shrink: 1;
+    border-radius: 2px;
     min-width: 0;
     color: #fff;
     text-decoration: none;
@@ -154,7 +152,7 @@
   }
 }
 
-@media (max-width: 768px), (hover: none) {
+@media (max-width: 599px), (hover: none) {
   .gallery .g-tile .g-ov {
     opacity: 1;
     font-size: 0.6875rem;
@@ -165,9 +163,9 @@
   }
 }
 
-@media (max-width: 768px) {
-  .gallery {
-    --g-row: 120px;
+@media (max-width: 599px) {
+  .gallery .g-tile {
+    height: 120px;
   }
 }
 

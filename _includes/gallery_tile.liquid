@@ -1,5 +1,5 @@
-{%- assign ar = include.p.width | times: 1.0 | divided_by: include.p.height -%}
-<a class="g-tile" style="--ar:{{ ar | round: 4 }}" href="{{ include.p.url | relative_url }}"
+{%- assign grow = include.p.width | times: 100.0 | divided_by: include.p.height | round -%}
+<a class="g-tile" style="flex-grow:{{ grow }};aspect-ratio:{{ include.p.width }} / {{ include.p.height }}" href="{{ include.p.url | relative_url }}"
   ><img
     src="{{ include.p.image | relative_url }}"
     width="{{ include.p.width }}"
