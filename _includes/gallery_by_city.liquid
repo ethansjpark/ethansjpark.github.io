@@ -1,0 +1,6 @@
+{%- comment -%}Sets `city_items` to the photos whose city normalizes to include.key.{%- endcomment -%}
+{%- assign city_items = "" | split: "," -%}
+{%- for p in include.photos -%}
+  {%- include gallery_norm.liquid s=p.city -%}
+  {%- if norm == include.key -%}{%- assign one = include.photos | slice: forloop.index0, 1 -%}{%- assign city_items = city_items | concat: one -%}{%- endif -%}
+{%- endfor -%}

@@ -1,5 +1,21 @@
 # City view / Series view order. Cities not listed follow, alphabetically.
+# Matching ignores case and accents ("Tubingen" == "Tübingen").
 - Seoul
 - Tokyo
 - New York
 - Kyoto
+- Paris
+- Milan
+- Vienna
+- Arles
+- Munich
+- Nice
+- Boston
+- Salzburg
+- Atlanta
+- Marseille
+- Chicago
+- Tübingen
+- San Francisco
+- San Antonio
+- Austin
