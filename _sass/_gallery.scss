@@ -152,7 +152,8 @@
   }
 }
 
-@media (max-width: 599px), (hover: none) {
+// Touch devices can't hover: keep the overlay visible (wider than phones only; phones hide it below).
+@media (hover: none) {
   .gallery .g-tile .g-ov {
     opacity: 1;
     font-size: 0.6875rem;
@@ -163,9 +164,14 @@
   }
 }
 
+// Phones: shorter rows and no overlay at all; tapping a tile still opens its page.
 @media (max-width: 599px) {
   .gallery .g-tile {
     height: 120px;
+
+    .g-ov {
+      display: none;
+    }
   }
 }
 
