@@ -3,6 +3,7 @@ layout: default
 ---
 {% assign photo = page.photo %}
 <div class="post photo-page">
+  <a class="photo-back" href="{{ '/gallery/' | relative_url }}">← Gallery</a>
   <header class="post-header">
     <h1 class="post-title">{{ photo.title }}</h1>
     <p class="photo-city">{{ photo.city }}</p>
@@ -31,3 +32,11 @@ layout: default
     </span>
   </nav>
 </div>
+<script>
+  (function () {
+    try {
+      var v = sessionStorage.getItem('galleryView');
+      if (/^(grid|list|city|series)$/.test(v)) document.querySelector('.photo-back').hash = v;
+    } catch (e) {}
+  })();
+</script>

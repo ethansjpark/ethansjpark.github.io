@@ -192,11 +192,24 @@
   .photo-nav {
     display: flex;
     justify-content: space-between;
+  }
 
-    a {
-      color: var(--global-text-color);
-      text-underline-offset: 4px;
-      text-decoration-thickness: 1px;
+  .photo-nav a,
+  .photo-back {
+    color: var(--global-text-color);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+      border-radius: 2px;
     }
+  }
+
+  .photo-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
   }
 }

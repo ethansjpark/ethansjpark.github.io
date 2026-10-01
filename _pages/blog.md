@@ -77,6 +77,7 @@ nav_order: 1
     function show(name) {
       btns.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.view === name); });
       views.forEach(function (v) { v.hidden = v.dataset.view !== name; });
+      try { sessionStorage.setItem("galleryView", name); } catch (e) {}
     }
     btns.forEach(function (b) {
       b.addEventListener("click", function () {
