@@ -5,61 +5,23 @@ permalink: /projects/
 description:
 nav: true
 nav_order: 2
-display_categories: [products, research]
-horizontal: false
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
+{% assign projects = site.projects | where_exp: 'p', 'p.published != false' | sort: 'importance' | reverse %}
+
+<div class="pg">
+  {% for project in projects %}
+    {% assign logo = project.logo | default: project.img %}
+    <a class="pg-cell" href="{{ project.url | relative_url }}">
+      {% if logo %}
+        <img class="pg-logo" src="{{ logo | relative_url }}" alt="" width="32" height="32" loading="lazy">
+      {% else %}
+        <span class="pg-logo pg-letter" aria-hidden="true">{{ project.title | slice: 0 | upcase }}</span>
+      {% endif %}
+      <span class="pg-text">
+        <span class="pg-title">{{ project.title }}</span>
+        <span class="pg-desc">{{ project.description }}</span>
+      </span>
+    </a>
   {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
-
-{% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
 </div>

@@ -1,0 +1,81 @@
+// Projects listing: bordered cells, hairlines shared between neighbours.
+.pg {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+  border-top: 0.5px solid var(--global-divider-color);
+  border-left: 0.5px solid var(--global-divider-color);
+}
+
+.pg-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 150px;
+  padding: 16px;
+  border-right: 0.5px solid var(--global-divider-color);
+  border-bottom: 0.5px solid var(--global-divider-color);
+  color: var(--global-text-color);
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    color: var(--global-text-color);
+    text-decoration: none;
+    background-color: var(--global-code-bg-color);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--global-text-color);
+    outline-offset: -2px;
+  }
+
+  // an odd last cell takes the whole row instead of leaving a hole
+  &:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+.pg-logo {
+  display: block;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.pg-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--global-text-color-light);
+  color: var(--global-bg-color);
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.pg-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.pg-desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--global-text-color-light);
+}
+
+@media (max-width: 575px) {
+  .pg {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
