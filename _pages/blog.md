@@ -6,7 +6,7 @@ nav: true
 nav_order: 1
 ---
 
-{% assign photos = site.data.gallery | sort: "date" | reverse %}
+{% assign photos = site.data.gallery_sorted %}
 
 {% capture tiles_all %}{% for p in photos %}{% include gallery_tile.liquid p=p %}{% endfor %}{% endcapture %}
 

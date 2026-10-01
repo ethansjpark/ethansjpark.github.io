@@ -167,3 +167,35 @@
     --g-row: 120px;
   }
 }
+
+// Single photo page
+.photo-page {
+  .photo-city,
+  .photo-date {
+    margin: 0;
+    color: var(--global-text-color-light);
+  }
+  .photo-date {
+    font-size: 0.875rem;
+  }
+
+  .photo-img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    margin: 1.5rem 0;
+  }
+
+  .photo-nav {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      color: var(--global-text-color);
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+  }
+}
