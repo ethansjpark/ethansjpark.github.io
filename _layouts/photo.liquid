@@ -9,7 +9,7 @@ layout: default
     <p class="photo-date">{{ photo.date | date: "%B %-d, %Y" }}</p>
   </header>
 
-  <img class="photo-img" src="{{ photo.image | relative_url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.title }}">
+  <img class="photo-img" data-zoomable src="{{ photo.image | relative_url }}" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.title }}">
 
   <nav class="photo-nav">
     <span>{% if page.prev %}<a href="{{ page.prev.url | relative_url }}">Previous</a>{% endif %}</span>
