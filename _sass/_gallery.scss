@@ -215,7 +215,10 @@
 
   .photo-back {
     display: inline-block;
-    margin-bottom: 1rem;
+    vertical-align: top;
+    // 44px+ tap target: vertical padding offset by negative margin so layout doesn't shift
+    padding: 0.75rem 0;
+    margin: -0.75rem 0 0.25rem;
     font-size: 0.875rem;
   }
 }
