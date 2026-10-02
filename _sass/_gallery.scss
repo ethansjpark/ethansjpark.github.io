@@ -42,7 +42,7 @@
   .g-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
 
     // trailing spacer so the last row keeps natural tile widths
     &::after {
@@ -88,10 +88,6 @@
       line-height: 1.3;
 
       // explicit colors: never inherit the theme text/link color
-      b,
-      i {
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-      }
       b {
         font-weight: 500;
         color: #fff;
@@ -99,7 +95,8 @@
       i {
         font-style: normal;
         color: rgba(255, 255, 255, 0.85);
-        font-size: 0.8125rem;
+        font-family: var(--font-mono-ui);
+        font-size: 11px;
       }
     }
 
@@ -120,7 +117,7 @@
     color: var(--global-text-color-light);
 
     span {
-      margin-left: 0.4rem;
+      margin-left: 0.5rem;
     }
   }
 
@@ -130,16 +127,16 @@
     padding: 0;
 
     li {
-      border-top: 1px solid var(--global-divider-color);
+      border-top: 0.5px solid var(--global-divider-color);
       &:last-child {
-        border-bottom: 1px solid var(--global-divider-color);
+        border-bottom: 0.5px solid var(--global-divider-color);
       }
     }
 
     a {
       display: flex;
       gap: 1rem;
-      padding: 0.6rem 0;
+      padding: 0.75rem 0;
       color: var(--global-text-color);
       text-decoration: none;
 
@@ -149,6 +146,8 @@
       .c,
       .y {
         color: var(--global-text-color-light);
+        font-family: var(--font-mono-ui);
+        font-size: 12px;
       }
       .c {
         flex: 0 0 30%;
@@ -168,7 +167,7 @@
     font-size: 0.6875rem;
     padding: 0.25rem;
     i {
-      font-size: 0.625rem;
+      font-size: 11px;
     }
   }
 }

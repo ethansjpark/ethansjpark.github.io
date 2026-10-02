@@ -20,7 +20,7 @@ strong {
 }
 
 hr {
-  border-top: 1px solid var(--global-divider-color);
+  border-top: 0.5px solid var(--global-divider-color);
 }
 
 table {
@@ -52,7 +52,7 @@ table.table a {
 .table-dark {
   background-color: transparent;
   &.table-bordered {
-    border: 1px solid var(--global-divider-color) !important;
+    border: 0.5px solid var(--global-divider-color) !important;
   }
 }
 
@@ -169,16 +169,7 @@ ul.task-list input[type="checkbox"] {
 .card {
   background-color: var(--global-card-bg-color);
   border: none;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.08),
-    0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.2s ease;
-
-  &:hover {
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.1),
-      0 2px 4px rgba(0, 0, 0, 0.06);
-  }
+  box-shadow: none;
 
   .card-img {
     width: 100%;
@@ -264,7 +255,8 @@ svg.inline-icon {
   width: 100%;
 
   img {
-    border-radius: 10px !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
   }
 
   .more-info {
@@ -418,7 +410,7 @@ footer.fixed-bottom {
 }
 
 footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
+  border-top: 0.5px solid var(--global-divider-color);
   padding-top: 40px;
   padding-bottom: 40px;
   font-size: 0.9rem;
@@ -435,7 +427,7 @@ footer.sticky-bottom {
 
   .card {
     background-color: var(--global-card-bg-color);
-    border: 1px solid var(--global-divider-color);
+    border: 0.5px solid var(--global-divider-color);
 
     .list-group-item {
       background-color: inherit;
@@ -471,7 +463,7 @@ footer.sticky-bottom {
 // Blog
 
 .header-bar {
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: 0.5px solid var(--global-divider-color);
   text-align: left;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -492,7 +484,7 @@ footer.sticky-bottom {
 }
 
 .tag-category-list {
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: 0.5px solid var(--global-divider-color);
   text-align: center;
   padding-top: 1rem;
 
@@ -525,7 +517,7 @@ footer.sticky-bottom {
   padding: 0;
 
   li {
-    border-bottom: 1px solid var(--global-divider-color);
+    border-bottom: 0.5px solid var(--global-divider-color);
     list-style: none;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
@@ -568,7 +560,7 @@ footer.sticky-bottom {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50% !important;
+      border-radius: 4px !important;
       border: none !important;
       background: transparent;
       font-size: 0.8rem;
@@ -632,7 +624,7 @@ footer.sticky-bottom {
   h2.category {
     color: var(--global-text-color-light);
     border-bottom: none;
-    border-top: 1px solid var(--global-divider-color);
+    border-top: 0.5px solid var(--global-divider-color);
     padding-top: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
@@ -673,7 +665,7 @@ footer.sticky-bottom {
 
   h2.bibliography {
     color: var(--global-divider-color);
-    border-top: 1px solid var(--global-divider-color);
+    border-top: 0.5px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 2rem;
     text-align: right;
@@ -710,7 +702,7 @@ footer.sticky-bottom {
 
         .award {
           color: var(--global-theme-color) !important;
-          border: 1px solid var(--global-theme-color);
+          border: 0.5px solid var(--global-theme-color);
         }
       }
 
@@ -748,7 +740,7 @@ footer.sticky-bottom {
       .links {
         a.btn {
           color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
+          border: 0.5px solid var(--global-text-color);
           padding-left: 1rem;
           padding-right: 1rem;
           padding-top: 0.25rem;
@@ -837,7 +829,7 @@ figure.highlight {
 pre {
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 6px 12px;
 
   pre,
@@ -954,7 +946,7 @@ progress::-moz-progress-bar {
   .copy {
     background: var(--global-card-bg-color);
     border-color: var(--global-bg-color);
-    border-radius: 0.3rem;
+    border-radius: 4px;
     border-style: none;
     color: var(--global-text-color);
     font-size: medium;
@@ -979,7 +971,7 @@ progress::-moz-progress-bar {
   }
 
   .btn-secondary.dropdown-toggle {
-    border: 1px solid var(--global-divider-color);
+    border: 0.5px solid var(--global-divider-color);
 
     .page-size {
       color: inherit;
@@ -1162,15 +1154,15 @@ ninja-keys::part(ninja-input-wrapper) {
 .bibsearch-form-input {
   color: var(--global-newsletter-text-color);
   background: var(--global-newsletter-bg-color);
-  border: 1px solid var(--global-newsletter-text-color);
+  border: 0.5px solid var(--global-newsletter-text-color);
   outline: none;
   margin: 0px 10px 0px 0px;
   width: 100%;
   max-width: 350px;
   min-width: 100px;
   box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-  border-radius: 6px;
+  box-shadow: none;
+  border-radius: 4px;
   padding: 8px 12px;
 }
 
@@ -1189,8 +1181,8 @@ ninja-keys::part(ninja-input-wrapper) {
   align-items: center;
   flex-direction: row;
   padding: 9px 17px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-  border-radius: 6px;
+  box-shadow: none;
+  border-radius: 4px;
   text-align: center;
   font-style: normal;
   font-weight: 500;
@@ -1210,8 +1202,8 @@ ninja-keys::part(ninja-input-wrapper) {
   align-items: center;
   flex-direction: row;
   padding: 9px 17px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-  border-radius: 6px;
+  box-shadow: none;
+  border-radius: 4px;
   text-align: center;
   font-style: normal;
   font-weight: 500;
@@ -1266,7 +1258,7 @@ ninja-keys::part(ninja-input-wrapper) {
 
   .popover-header {
     color: var(--global-text-color); // Header text color
-    border-bottom: 1px solid var(--global-divider-color);
+    border-bottom: 0.5px solid var(--global-divider-color);
   }
 
   .popover-body {
@@ -1376,4 +1368,17 @@ figure.cover {
   a.cover-link:hover {
     color: #23212d !important;
   }
+}
+
+// No shadows anywhere (mdb depth helpers used by templates).
+.z-depth-0,
+.z-depth-1,
+.z-depth-1-half,
+.z-depth-2,
+.z-depth-3,
+.z-depth-4,
+.z-depth-5,
+.hoverable,
+.hoverable:hover {
+  box-shadow: none !important;
 }

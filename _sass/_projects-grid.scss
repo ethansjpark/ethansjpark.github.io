@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-width: 0;
-  min-height: 150px;
+  min-height: 152px;
   padding: 16px;
   border-right: 0.5px solid var(--global-divider-color);
   border-bottom: 0.5px solid var(--global-divider-color);
@@ -42,7 +42,7 @@
   flex: none;
   width: 32px;
   height: 32px;
-  border-radius: 6px;
+  border-radius: 4px;
   object-fit: cover;
 }
 
@@ -54,23 +54,24 @@
   color: var(--global-bg-color);
   font-family: var(--font-display);
   font-size: 16px;
+  font-weight: 500;
   line-height: 1;
 }
 
 .pg-title {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
 .pg-desc {
   display: block;
   margin-top: 4px;
-  font-size: 0.8125rem;
-  line-height: 1.35;
+  font-size: 12px;
+  line-height: 1.4;
   color: var(--global-text-color-light);
 }
 
