@@ -15,6 +15,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USER_AGENT = "ethansjpark.github.io site helper (https://github.com/ethansjpark/ethansjpark.github.io)"
 TIMEOUT = 20
 
+sys.stdout.reconfigure(line_buffering=True)  # keep stdout and stderr lines in order when piped
+
 
 def die(msg):
     """One-line error and exit status 1."""
@@ -65,14 +67,28 @@ def ask(prompt):
         return ""
 
 
-def http_get(url, accept=None):
-    """GET with a timeout and a descriptive User-Agent; no retries. Returns (status, text)."""
+class OffListRedirect(Exception):
+    pass
+
+
+def http_get(url, accept=None, hosts=None):
+    """GET with a timeout and a descriptive User-Agent; no retries. Returns (status, text).
+    With hosts, a redirect to any other host is not followed (raises OffListRedirect)."""
     headers = {"User-Agent": USER_AGENT}
     if accept:
         headers["Accept"] = accept
+
+    class Guard(urllib.request.HTTPRedirectHandler):
+        def redirect_request(self, req, fp, code, msg, hdrs, newurl):
+            host = urllib.parse.urlsplit(newurl).hostname
+            if hosts and host not in hosts:
+                raise OffListRedirect(host)
+            return super().redirect_request(req, fp, code, msg, hdrs, newurl)
+
+    opener = urllib.request.build_opener(Guard)
     req = urllib.request.Request(url, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+        with opener.open(req, timeout=TIMEOUT) as r:
             return r.status, r.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         return e.code, ""
