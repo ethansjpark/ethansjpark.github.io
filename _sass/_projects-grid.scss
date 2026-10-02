@@ -2,9 +2,27 @@
 .pg {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 1.5rem;
   border-top: 0.5px solid var(--global-divider-color);
   border-left: 0.5px solid var(--global-divider-color);
+}
+
+// Each category is its own grid under a small mono label, so hairlines never double between sections.
+.pg-section {
+  margin-top: 1.5rem;
+
+  & + & {
+    margin-top: 2rem;
+  }
+}
+
+.pg-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono-ui);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--global-text-color-light);
 }
 
 .pg-cell {

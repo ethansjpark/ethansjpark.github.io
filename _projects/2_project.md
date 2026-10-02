@@ -4,6 +4,7 @@ title: MEDi
 description: AI-driven medication detection platform
 img: assets/img/medi/medi_logo.jpg
 importance: 4
+order: 3
 category: products
 related_publications: false
 toc:
