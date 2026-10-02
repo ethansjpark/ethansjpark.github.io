@@ -244,8 +244,8 @@ display_tags: [] # these tags will be displayed on the front page of your blog
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Park]
+  first_name: [Ethan]
 
   style: apa
   locale: en
@@ -265,8 +265,10 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
-  group_order: descending
+  # one flat list, newest first: the year is shown in each row by _layouts/bib.liquid
+  group_by: none
+  sort_by: year,month
+  order: descending
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid

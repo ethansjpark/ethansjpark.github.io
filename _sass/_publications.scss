@@ -1,0 +1,153 @@
+// Publications: one hairline row per entry, year in a narrow left column.
+.publications {
+  margin-top: 1.5rem;
+
+  ol.bibliography {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 0.5px solid var(--global-divider-color);
+
+    li {
+      margin: 0;
+      padding: 16px 0;
+      border-top: 0.5px solid var(--global-divider-color);
+    }
+  }
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: baseline;
+}
+
+.pub-year {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+}
+
+.pub-main {
+  min-width: 0;
+}
+
+.pub-title {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--global-text-color);
+}
+
+.pub-authors,
+.pub-venue {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+
+  em {
+    font-style: normal;
+  }
+}
+
+.pub-authors {
+  margin-top: 8px;
+}
+
+.pub-venue {
+  margin-top: 4px;
+}
+
+// the author highlighted via scholar.last_name / first_name in _config.yml
+.pub-self {
+  font-weight: 500;
+  color: var(--global-text-color);
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+
+  &:empty {
+    display: none;
+  }
+
+  a {
+    color: var(--global-text-color);
+    text-decoration: underline;
+    text-decoration-color: var(--global-divider-color);
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 3px;
+    transition:
+      color 0.15s ease,
+      text-decoration-color 0.15s ease;
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration-color: var(--global-theme-color);
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  }
+}
+
+// BibTeX block, revealed by the BibTeX link (assets/js/common.js toggles .open)
+.pub .bibtex.hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.15s ease,
+    margin-top 0.15s ease;
+
+  &.open {
+    max-height: 100em;
+    margin-top: 12px;
+  }
+
+  figure.highlight {
+    margin: 0;
+  }
+
+  pre {
+    margin: 0;
+    padding: 12px;
+    border: 0.5px solid var(--global-divider-color);
+    border-radius: 4px;
+    box-shadow: none;
+    background: none;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: var(--global-text-color-light);
+  }
+
+  pre,
+  pre code,
+  pre span {
+    color: var(--global-text-color-light) !important;
+    font-weight: 400 !important;
+  }
+}
+
+// Phones: the year stacks above the title.
+@media (max-width: 599px) {
+  .pub {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .pub-year {
+    margin-bottom: 4px;
+  }
+}
