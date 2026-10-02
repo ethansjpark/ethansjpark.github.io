@@ -3,7 +3,7 @@ layout: page
 permalink: /gallery/
 title: gallery
 nav: true
-nav_order: 1
+nav_order: 4
 ---
 
 {% assign photos = site.data.gallery_sorted %}

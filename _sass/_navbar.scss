@@ -33,7 +33,7 @@
   flex-shrink: 0;
   align-items: center;
   gap: 24px;
-  margin: 0;
+  margin: 0 0 0 auto; // stays right-aligned even when the site name is hidden (home page)
   padding: 0;
   list-style: none;
 }
@@ -94,17 +94,21 @@ html[data-theme-setting="dark"] .site-theme svg {
   border-radius: 2px;
 }
 
-// Phones: keep all four links in one row (no hamburger) and let the name shrink.
+// Phones: keep all four links in one row (no hamburger); name and links shrink slightly.
 @media (max-width: 575px) {
   .site-nav-inner {
     gap: 8px;
   }
 
   .site-name {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .site-links {
-    gap: 12px;
+    gap: 8px;
+  }
+
+  .site-link {
+    font-size: 11px;
   }
 }

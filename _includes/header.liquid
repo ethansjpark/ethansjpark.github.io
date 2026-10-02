@@ -1,7 +1,9 @@
 <header>
   <nav class="site-nav" aria-label="Main">
     <div class="container site-nav-inner">
-      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      {% unless page.url == '/' %}
+        <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      {% endunless %}
       <ul class="site-links">
         {% assign sorted_pages = site.pages | sort: 'nav_order' %}
         {% for p in sorted_pages %}
