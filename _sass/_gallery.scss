@@ -89,14 +89,18 @@
 
       // explicit colors: never inherit the theme text/link color
       b {
-        font-weight: 500;
+        font-family: var(--font-display);
+        font-size: 14px;
+        font-weight: 400;
         color: #fff;
       }
+      // the one place DM Mono is used
       i {
         font-style: normal;
         color: rgba(255, 255, 255, 0.85);
         font-family: var(--font-mono-ui);
         font-size: 11px;
+        letter-spacing: 0.01em;
       }
     }
 
@@ -146,7 +150,7 @@
       .c,
       .y {
         color: var(--global-text-color-light);
-        font-family: var(--font-mono-ui);
+        font-family: var(--font-display);
         font-size: 12px;
       }
       .c {
