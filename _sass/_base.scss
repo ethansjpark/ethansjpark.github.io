@@ -1382,3 +1382,9 @@ figure.cover {
 .hoverable:hover {
   box-shadow: none !important;
 }
+
+// The back-to-top library styles itself as a shadowed circle; keep it square-ish and flat.
+#back-to-top {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
