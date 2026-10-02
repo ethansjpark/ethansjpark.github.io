@@ -1,5 +1,6 @@
 # Photos. Add: title, city, date, image. Pages are generated automatically.
-# width/height are filled by `python3 bin/gallery_dims.py`.
+# After adding a photo run `python3 bin/gallery_dims.py` (fills width/height) and
+# `python3 bin/gallery_thumbs.py` (makes the grid thumbnail), then commit the new files.
 
 - title: roof of shadow
   city: Kyoto

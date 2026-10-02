@@ -1,8 +1,8 @@
 # Builds one page per entry in _data/gallery.yml (no per-photo files needed).
 #   /gallery/<slug>/   slug = image filename without extension, "_" -> "-"
-# Also exposes site.data.gallery_sorted (newest first, the order used by the
-# listing and by Previous/Next) and sets `url` on every photo, and writes
-# redirect stubs for old URLs listed in _data/gallery_redirects.yml.
+# Also sets `url` and `thumb` on every photo, exposes site.data.gallery_sorted (newest
+# first, the order used by the listing and by Previous/Next), and writes redirect stubs
+# for old URLs listed in _data/gallery_redirects.yml.
 module GalleryPages
   class PhotoPage < Jekyll::PageWithoutAFile
     def initialize(site, dir, data, content = "")
@@ -21,6 +21,11 @@ module GalleryPages
       photos.each do |p|
         p["slug"] = File.basename(p["image"].to_s, ".*").tr("_", "-")
         p["url"] = "/gallery/#{p["slug"]}/"
+        # grid thumbnail by convention: <image dir>/thumbs/<name>.jpg (bin/gallery_thumbs.py);
+        # only set when the file exists, so the grid falls back to the original image
+        dir, file = File.split(p["image"].to_s)
+        thumb = File.join(dir, "thumbs", File.basename(file, ".*") + ".jpg")
+        p["thumb"] = thumb if File.exist?(File.join(site.source, thumb.sub(%r{\A/}, "")))
       end
       # newest first; ties keep file order
       sorted = photos.each_with_index.sort_by { |p, i| [p["date"].to_s, -i] }.reverse.map(&:first)
