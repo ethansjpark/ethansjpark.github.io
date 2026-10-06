@@ -72,17 +72,10 @@
     color: var(--global-text-color);
   }
 
-  // Hint at the current setting: light = left half filled, dark = right half, system = top half.
-  svg {
-    transform: rotate(90deg);
-  }
+  // The icon shows the current mode: left half filled = light, right half filled = dark.
 }
 
-html[data-theme-setting="light"] .site-theme svg {
-  transform: none;
-}
-
-html[data-theme-setting="dark"] .site-theme svg {
+html[data-theme="dark"] .site-theme svg {
   transform: rotate(180deg);
 }
 

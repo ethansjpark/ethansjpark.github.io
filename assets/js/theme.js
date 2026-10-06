@@ -1,24 +1,48 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
-let toggleThemeSetting = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
-    setThemeSetting("dark");
-  } else {
-    setThemeSetting("system");
+// The stored choice is "light" or "dark". Anything else (nothing stored, or the old "system"
+// value) means no choice yet, and the site follows the device preference.
+let determineThemeSetting = () => {
+  try {
+    const themeSetting = localStorage.getItem("theme");
+    return themeSetting === "light" || themeSetting === "dark" ? themeSetting : null;
+  } catch (e) {
+    return null;
   }
 };
 
-// Change the theme setting and apply the theme.
-let setThemeSetting = (themeSetting) => {
-  localStorage.setItem("theme", themeSetting);
+// The mode currently shown, "dark" or "light": the stored choice, otherwise the device preference.
+let determineComputedTheme = () => {
+  const themeSetting = determineThemeSetting();
+  if (themeSetting) {
+    return themeSetting;
+  }
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
 
-  document.documentElement.setAttribute("data-theme-setting", themeSetting);
+// Switch to the opposite of the mode currently shown and remember that choice.
+let toggleThemeSetting = () => {
+  setThemeSetting(determineComputedTheme() === "dark" ? "light" : "dark");
+};
+
+// Store an explicit choice and apply it.
+let setThemeSetting = (themeSetting) => {
+  try {
+    localStorage.setItem("theme", themeSetting);
+  } catch (e) {
+    // storage unavailable: the choice still applies for this page view
+  }
 
   applyTheme();
+};
+
+// Describe the next action on the toggle button. The button may not exist yet while the head runs.
+let updateThemeToggle = (theme) => {
+  const toggle = document.getElementById("light-toggle");
+  if (!toggle) return;
+  const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
+  toggle.setAttribute("title", label);
+  toggle.setAttribute("aria-label", label);
 };
 
 // Apply the computed dark or light theme to the website.
@@ -51,6 +75,7 @@ let applyTheme = () => {
   }
 
   document.documentElement.setAttribute("data-theme", theme);
+  updateThemeToggle(theme);
 
   // Add class to tables.
   let tables = document.getElementsByTagName("table");
@@ -205,48 +230,34 @@ let transTheme = () => {
   }, 500);
 };
 
-// Determine the expected state of the theme toggle, which can be "dark", "light", or
-// "system". Default is "system".
-let determineThemeSetting = () => {
-  let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
-    themeSetting = "system";
-  }
-  return themeSetting;
-};
-
-// Determine the computed theme, which can be "dark" or "light". If the theme setting is
-// "system", the computed theme is determined based on the user's system preference.
-let determineComputedTheme = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    const userPref = window.matchMedia;
-    if (userPref && userPref("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    } else {
-      return "light";
-    }
-  } else {
-    return themeSetting;
-  }
-};
-
 let initTheme = () => {
-  let themeSetting = determineThemeSetting();
+  // Forget an old "system" (or any other invalid) value so it counts as no choice.
+  try {
+    const stored = localStorage.getItem("theme");
+    if (stored !== null && stored !== "light" && stored !== "dark") {
+      localStorage.removeItem("theme");
+    }
+  } catch (e) {}
 
-  setThemeSetting(themeSetting);
+  // Applies the stored choice, or the device preference when there is none. This runs in the
+  // head, before the first paint. It does not store anything.
+  applyTheme();
 
   // Add event listener to the theme toggle button.
   document.addEventListener("DOMContentLoaded", function () {
     const mode_toggle = document.getElementById("light-toggle");
+    if (!mode_toggle) return;
 
+    updateThemeToggle(determineComputedTheme());
     mode_toggle.addEventListener("click", function () {
       toggleThemeSetting();
     });
   });
 
-  // Add event listener to the system theme preference change.
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-    applyTheme();
+  // Follow the device preference live, until the visitor has made a choice with the toggle.
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (!determineThemeSetting()) {
+      applyTheme();
+    }
   });
 };
